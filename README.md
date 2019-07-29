@@ -1,5 +1,7 @@
 # Disc Back API
 
+[![Build Status](https://travis-ci.org/euiagosilva/discback-api.svg?branch=master)](https://travis-ci.org/euiagosilva/discback-api)
+
 > A modern REST API for selling vinyl records and calculating customer cashback value.
 
 This project is the result of a test asked by [Beblue](https://www.beblue.com.br/).
