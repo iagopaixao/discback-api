@@ -1,7 +1,7 @@
 package br.com.beblue.discbackapi.artist.client.fallback;
 
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
-import br.com.beblue.discbackapi.artist.client.response.AlbumResponse;
+import br.com.beblue.discbackapi.artist.client.response.ItemResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistWrapperResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class ArtistClientFallback implements ArtistClient {
   }
 
   @Override
-  public List<AlbumResponse> findAlbumsByArtist(String id, String offset, String limit) {
+  public List<ItemResponse> findAlbumsByArtist(String id, String offset, String limit) {
     log.error("m=findAlbumsByArtist status=error id={} cause={}", id, cause);
     return emptyList();
   }

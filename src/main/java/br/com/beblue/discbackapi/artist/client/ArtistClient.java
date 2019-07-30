@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.client;
 
-import br.com.beblue.discbackapi.artist.client.response.AlbumResponse;
+import br.com.beblue.discbackapi.artist.client.response.ItemResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistWrapperResponse;
 import feign.Headers;
 import feign.Param;
@@ -19,7 +19,7 @@ public interface ArtistClient {
   );
 
   @RequestLine("GET /artists/{id}/albums?offset={offset}&limit={limit}")
-  List<AlbumResponse> findAlbumsByArtist(
+  List<ItemResponse> findAlbumsByArtist(
       @Param("id") String id, @Param("offset") String offset, @Param("limit") String limit
   );
 }
