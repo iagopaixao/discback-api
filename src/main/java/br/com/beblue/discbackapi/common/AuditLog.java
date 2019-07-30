@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.disc.domain;
+package br.com.beblue.discbackapi.common;
 
 import lombok.Getter;
 
@@ -18,7 +18,7 @@ public class AuditLog {
   @Column(name = "updated_at", nullable = false)
   private LocalDateTime updatedAt;
 
-  AuditLog() {
+  public AuditLog() {
     setup();
     afterUpdate();
   }

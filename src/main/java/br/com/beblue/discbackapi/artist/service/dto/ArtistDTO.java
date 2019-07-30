@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.disc.service.dto;
+package br.com.beblue.discbackapi.artist.service.dto;
 
 import br.com.beblue.discbackapi.common.AuditLog;
 import lombok.AllArgsConstructor;
@@ -10,9 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiscDTO {
+public class ArtistDTO {
 
-  private Long id;
+  private String id;
+
+  private String name;
 
   private AuditLog auditLog;
 }

@@ -1,7 +1,8 @@
-package br.com.beblue.discbackapi.disc.client.config;
+package br.com.beblue.discbackapi.artist.client.config;
 
-import br.com.beblue.discbackapi.disc.client.DiscClient;
-import br.com.beblue.discbackapi.disc.client.fallback.DiscClientFallbackFactory;
+import br.com.beblue.discbackapi.artist.client.ArtistClient;
+import br.com.beblue.discbackapi.artist.client.fallback.ArtistClientFallbackFactory;
+import br.com.beblue.discbackapi.exception.ExternalErrorException;
 import br.com.beblue.discbackapi.spotify.client.AuthenticationClient;
 import br.com.beblue.discbackapi.spotify.response.AuthenticationResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,6 +24,7 @@ import java.lang.reflect.Type;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import static br.com.beblue.discbackapi.enumeration.Messages.EXTERNAL_ERROR_EXCEPTION;
 import static br.com.beblue.discbackapi.util.JacksonMapperUtils.OBJECT_MAPPER;
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
@@ -31,7 +33,7 @@ import static org.springframework.http.HttpStatus.resolve;
 @Slf4j
 @Configuration
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class DiscFeignConfig {
+public class ArtistFeignConfig {
 
   private static final ConcurrentMap<String, Object> TOKEN_CACHE = new ConcurrentHashMap<>();
 
@@ -44,9 +46,9 @@ public class DiscFeignConfig {
   @Value("${spotify.api.url}")
   private String apiUrl;
 
-  @Bean(name = "discClient")
+  @Bean(name = "artistClient")
   @DependsOn("authenticationClient")
-  public DiscClient discClient() {
+  public ArtistClient artistClient() {
     return HystrixFeign.builder()
         .client(new Http2Client())
         .encoder(new JacksonEncoder(OBJECT_MAPPER))
@@ -54,8 +56,8 @@ public class DiscFeignConfig {
         .retryer(new Retryer.Default())
         .requestInterceptor(new SpotifyAuthenticationInterceptor())
         .target(
-            new Target.HardCodedTarget<>(DiscClient.class, apiUrl),
-            new DiscClientFallbackFactory()
+            new Target.HardCodedTarget<>(ArtistClient.class, apiUrl),
+            new ArtistClientFallbackFactory()
         );
   }
 
@@ -77,7 +79,7 @@ public class DiscFeignConfig {
     }
 
     @Override
-    public Object decode(Response response, Type type) throws FeignException, IOException {
+    public Object decode(Response response, Type type) throws IOException {
       if (requireNonNull(resolve(response.status())).is4xxClientError()) {
         retrieveToken();
       }
@@ -86,10 +88,14 @@ public class DiscFeignConfig {
   }
 
   private void retrieveToken() {
-    authenticationClient.getToken().ifPresentOrElse(
-      DiscFeignConfig::storeTokenInCache,
-      this::retrieveToken
-    );
+    authenticationClient
+        .getToken()
+        .ifPresentOrElse(
+           ArtistFeignConfig::storeTokenInCache,
+           () -> {
+              throw new ExternalErrorException(EXTERNAL_ERROR_EXCEPTION);
+           }
+        );
   }
 
   private static void storeTokenInCache(AuthenticationResponse response) {

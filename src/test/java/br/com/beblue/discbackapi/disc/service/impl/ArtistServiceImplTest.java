@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 
 //TODO: add tests
 @RunWith(MockitoJUnitRunner.class)
-public class DiscServiceImplTest {
+public class ArtistServiceImplTest {
 
   @Mock private DiscRepository repository;
 

@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.disc.client.response;
+package br.com.beblue.discbackapi.disc.service.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiscResponse {
+public class DiscCatalogResponse {
 
-  private String id;
+  private DiscResponse disc;
+
 }

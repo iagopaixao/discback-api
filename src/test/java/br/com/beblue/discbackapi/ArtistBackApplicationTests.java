@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @EnableCircuitBreaker
 @RunWith(SpringRunner.class)
 @EnableFeignClients(clients = {DiscClient.class, AuthenticationClient.class})
-public class DiscBackApplicationTests {
+public class ArtistBackApplicationTests {
 
   @Test
   public void contextLoads() {}

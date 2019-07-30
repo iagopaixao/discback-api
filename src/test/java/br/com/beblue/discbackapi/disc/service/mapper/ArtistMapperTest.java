@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNull;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class DiscMapperTest {
+public class ArtistMapperTest {
 
   @Autowired private DiscMapper mapper;
 

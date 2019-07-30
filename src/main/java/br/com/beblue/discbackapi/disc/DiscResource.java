@@ -1,10 +1,15 @@
-package br.com.beblue.discbackapi.web.rest;
+package br.com.beblue.discbackapi.disc;
 
-import br.com.beblue.discbackapi.disc.service.CarService;
+import br.com.beblue.discbackapi.disc.service.DiscService;
+import br.com.beblue.discbackapi.disc.service.response.DiscCatalogResponse;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +25,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DiscResource {
 
-  private final CarService service;
+  private final DiscService service;
+
+  @GetMapping("/catalogs")
+  public ResponseEntity<Page<DiscCatalogResponse>> getCatalog(Pageable pageable) {
+    return ResponseEntity.ok(service.getCatalog(pageable));
+  }
 }

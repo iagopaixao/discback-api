@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.web.rest;
+package br.com.beblue.discbackapi.disc;
 
 import org.junit.Before;
 import org.junit.Test;

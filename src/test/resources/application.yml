@@ -51,8 +51,8 @@ hystrix:
 
 swagger-ui:
   api-info:
-    title: REST support for Disc Back API
-    description: This is the REST UI support of Disc Back API. Here you can perform REST operations on the API.
+    title: REST support for Artist Back API
+    description: This is the REST UI support of Artist Back API. Here you can perform REST operations on the API.
     license: Apache License 2.0
     basePackage: br.com.beblue.discbackapi.web.rest
     contractName: Iago Paixão
@@ -61,7 +61,9 @@ swagger-ui:
 
 spotify:
   api:
-    url: https://accounts.spotify.com/api
+    url: https://api.spotify.com/v1
+    accounts:
+      url: https://accounts.spotify.com/api
   authentication:
     grant-type: client_credentials
     credentials: 70899cda4f3c47a2a5e47cc8dba2f422:f5f5750e689c4803b6ef8f2f925921a3

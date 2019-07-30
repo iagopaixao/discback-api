@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Messages {
   NOT_FIND_ENTITY("msg-error.not-find-entity"),
-  MODEL_NAME_DUPLICATION("msg-error.model-name-duplication");
+  EXTERNAL_ERROR_EXCEPTION("msg-error.external-error-exception");
 
   private String value;
 }

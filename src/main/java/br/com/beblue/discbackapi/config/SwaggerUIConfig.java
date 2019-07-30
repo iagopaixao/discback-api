@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.config;
 
-import br.com.beblue.discbackapi.web.rest.DiscResource;
+import br.com.beblue.discbackapi.disc.DiscResource;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

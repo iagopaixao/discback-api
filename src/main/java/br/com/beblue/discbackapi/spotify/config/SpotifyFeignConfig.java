@@ -22,7 +22,7 @@ import static org.springframework.util.Base64Utils.encodeToString;
 @Configuration
 public class SpotifyFeignConfig {
 
-  @Value("${spotify.api.url}")
+  @Value("${spotify.api.accounts.url}")
   private String apiUrl;
 
   @Value("${spotify.authentication.credentials}")

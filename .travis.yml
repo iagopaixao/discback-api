@@ -16,5 +16,5 @@ addons:
       secure: "2851657440ed74a5664be1b5cf2765f272f2f460"
 
 script:
-  - ./gradlew clean build
+  - ./gradlew -s --parallel --build-cache clean build
   - ./gradlew sonarqube
