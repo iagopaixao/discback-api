@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.domain;
 
-import br.com.beblue.discbackapi.common.AuditLog;
+import br.com.beblue.discbackapi.AuditDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,5 +24,5 @@ public class Artist {
   @Column(nullable = false)
   private String name;
 
-  @Embedded @Builder.Default() private AuditLog auditLog = new AuditLog();
+  @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

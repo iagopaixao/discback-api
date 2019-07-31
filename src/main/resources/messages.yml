@@ -1,3 +1,7 @@
 msg-error:
-  not-find-entity: Could not find entity {0}.
-  external-error-exception: External Server Error.
+  artist:
+    not-find-error: Could not find an artist.
+  album:
+    not-find-error: Could not find an album.
+  spotify:
+    authentication-error: An error occurred while attempting to get token in spotify API.

@@ -1,20 +1,24 @@
 package br.com.beblue.discbackapi.artist.service;
 
-import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
-
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
 import br.com.beblue.discbackapi.artist.client.response.AlbumResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistResponse;
 import br.com.beblue.discbackapi.artist.repository.ArtistRepository;
+import br.com.beblue.discbackapi.artist.service.exception.AlbumNotFoundException;
+import br.com.beblue.discbackapi.artist.service.exception.ArtistNotFoundException;
 import br.com.beblue.discbackapi.artist.service.mapper.ArtistMapper;
-import br.com.beblue.discbackapi.common.Genre;
-import br.com.beblue.discbackapi.exception.ExternalErrorException;
-import java.util.List;
-import java.util.stream.Collectors;
+import br.com.beblue.discbackapi.disc.domain.Genre;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static br.com.beblue.discbackapi.util.Messages.ALBUM_NOT_FOUND_ERROR;
+import static br.com.beblue.discbackapi.util.Messages.ARTIST_NOT_FOUND_ERROR;
+import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
 
 @Service
 @Transactional(isolation = READ_COMMITTED)
@@ -35,7 +39,7 @@ public class ArtistService {
         .searchArtists(genre.name(), OFFSET, MAX_LIMIT)
         .parallelStream()
         .findAny()
-        .orElseThrow(ExternalErrorException::new)
+        .orElseThrow(() -> new ArtistNotFoundException(ARTIST_NOT_FOUND_ERROR))
         .getArtistItem()
         .getArtists()
         .parallelStream()
@@ -48,7 +52,7 @@ public class ArtistService {
         .findAlbumsByArtist(artistId, OFFSET, MAX_LIMIT)
         .parallelStream()
         .findAny()
-        .orElseThrow(ExternalErrorException::new)
+        .orElseThrow(() -> new AlbumNotFoundException(ALBUM_NOT_FOUND_ERROR))
         .getItems();
   }
 }

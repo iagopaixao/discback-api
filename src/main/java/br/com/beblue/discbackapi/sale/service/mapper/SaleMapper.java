@@ -1,8 +1,9 @@
-package br.com.beblue.discbackapi.artist.service.mapper;
+package br.com.beblue.discbackapi.sale.service.mapper;
 
-import br.com.beblue.discbackapi.artist.domain.Artist;
-import br.com.beblue.discbackapi.artist.service.vo.ArtistVO;
 import br.com.beblue.discbackapi.mapstruct.EntityMapper;
+import br.com.beblue.discbackapi.sale.domain.Sale;
+import br.com.beblue.discbackapi.sale.response.SaleResponse;
+import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
@@ -18,4 +19,7 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.SET_TO_NULL;
     nullValueCheckStrategy = ALWAYS,
     nullValuePropertyMappingStrategy = SET_TO_NULL
 )
-public interface ArtistMapper extends EntityMapper<ArtistVO, Artist> {}
+public interface SaleMapper extends EntityMapper<SaleVO, Sale> {
+
+  SaleResponse toResponse(Sale sale);
+}

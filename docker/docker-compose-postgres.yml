@@ -3,6 +3,8 @@ version: '3.5'
 services:
   discback-db:
     image: postgres:11
+    networks:
+      - discback-db-network
     restart: always
     ports:
       - 5432:5432
@@ -12,3 +14,7 @@ services:
     environment:
       POSTGRES_DB: discback_db
       POSTGRES_PASSWORD: secret
+
+networks:
+  discback-db-network:
+    driver: bridge

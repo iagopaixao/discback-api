@@ -1,7 +1,6 @@
-package br.com.beblue.discbackapi.disc.domain;
+package br.com.beblue.discbackapi.sale.domain;
 
 import br.com.beblue.discbackapi.AuditDate;
-import br.com.beblue.discbackapi.artist.domain.Artist;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,24 +16,20 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Disc {
+public class Sale {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name = "id", unique = true, nullable = false)
-  private String id;
-
-  private String name;
-
-  private Genre genre;
-
-  private BigDecimal price;
-
-  private BigDecimal cashback;
+  private Long id;
 
   //TODO: solving when create migration
   @Transient
-  private List<Artist> artists;
+  private List<String> discIds;
+
+  private BigDecimal value;
+
+  private BigDecimal cashbackTotal;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

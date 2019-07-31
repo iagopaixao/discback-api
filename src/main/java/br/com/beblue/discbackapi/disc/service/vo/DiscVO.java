@@ -1,27 +1,21 @@
-package br.com.beblue.discbackapi.disc.domain;
+package br.com.beblue.discbackapi.disc.service.vo;
 
-import br.com.beblue.discbackapi.AuditDate;
 import br.com.beblue.discbackapi.artist.domain.Artist;
+import br.com.beblue.discbackapi.disc.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-@Table
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Disc {
+public class DiscVO {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  @Column(name = "id", unique = true, nullable = false)
   private String id;
 
   private String name;
@@ -32,9 +26,5 @@ public class Disc {
 
   private BigDecimal cashback;
 
-  //TODO: solving when create migration
-  @Transient
   private List<Artist> artists;
-
-  @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }
