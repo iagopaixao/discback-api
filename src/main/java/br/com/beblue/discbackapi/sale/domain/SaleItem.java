@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Table(name = "sale_item")
@@ -21,8 +22,9 @@ import static javax.persistence.CascadeType.ALL;
 public class SaleItem {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  @Column(name = "id", unique = true, nullable = false)
+  @GeneratedValue(generator = "sale_item_id_seq", strategy = SEQUENCE)
+  @SequenceGenerator(name = "sale_item_seq", sequenceName = "sale_item_id_seq")
+  @Column(unique = true, nullable = false)
   private Long id;
 
   @OneToOne(cascade = ALL)

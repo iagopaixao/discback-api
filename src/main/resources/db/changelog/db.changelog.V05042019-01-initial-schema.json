@@ -13,7 +13,6 @@
                   "column": {
                     "name": "id",
                     "type": "bigserial",
-                    "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
                       "nullable": false
@@ -25,8 +24,7 @@
                     "name": "spotify_id",
                     "type": "varchar(200)",
                     "constraints": {
-                      "nullable": false,
-                      "unique": true
+                      "nullable": false
                     }
                   }
                 },
@@ -34,9 +32,7 @@
                   "column": {
                     "name": "name",
                     "type": "varchar(100)",
-                    "autoIncrement": false,
                     "constraints": {
-                      "primaryKey": true,
                       "nullable": false
                     }
                   }
@@ -115,7 +111,6 @@
                   "column": {
                     "name": "id",
                     "type": "bigserial",
-                    "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
                       "nullable": false
@@ -127,8 +122,7 @@
                     "name": "spotify_id",
                     "type": "varchar(100)",
                     "constraints": {
-                      "nullable": false,
-                      "unique": true
+                      "nullable": false
                     }
                   }
                 },
@@ -424,7 +418,7 @@
                 },
                 {
                   "column": {
-                    "name": "cashBack",
+                    "name": "cash_back",
                     "type": "numeric(30, 2)",
                     "constraints": {
                       "nullable": false
@@ -450,6 +444,20 @@
                   }
                 }
               ]
+            }
+          },
+          {
+            "addUniqueConstraint": {
+              "columnNames": "spotify_id",
+              "constraintName": "artist_spotify_unique_id",
+              "tableName": "artist"
+            }
+          },
+          {
+            "addUniqueConstraint": {
+              "columnNames": "spotify_id",
+              "constraintName": "disc_spotify_unique_id",
+              "tableName": "disc"
             }
           }
         ]

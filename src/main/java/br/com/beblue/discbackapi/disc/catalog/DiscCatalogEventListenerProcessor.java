@@ -13,16 +13,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DiscCatalogEventListenerProcessor {
 
-  private final CatalogService service;
+  private final DiscCatalogConsumer service;
 
   @EventListener
-  //TODO: add verification if catalog is already populated
-  public void populate(@Lazy ContextRefreshedEvent event) {
-    log.info("m=populate status=initial message=populating disk catalog  event={}", event.getSource());
-
-//    final var map = service.populateDiscCatalog();
-//    log.info("m=populate status=finished payload={}", map.toString());
-    log.info("m=populate status=finished payload=hai hai");
-
+  public void process(@Lazy ContextRefreshedEvent event) {
+    service.populateDiscCatalog();
   }
 }

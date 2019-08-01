@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiscCatalogResponse {
+public class GenreResponse {
 
-  private DiscResponse disc;
-
+  private String name;
 }

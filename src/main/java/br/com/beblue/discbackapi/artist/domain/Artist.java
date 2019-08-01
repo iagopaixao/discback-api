@@ -12,6 +12,7 @@ import java.util.Set;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Table
@@ -22,18 +23,24 @@ import static javax.persistence.FetchType.LAZY;
 public class Artist {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(generator = "artist_id_seq", strategy = SEQUENCE)
+  @SequenceGenerator(name = "artist_seq", sequenceName = "artist_id_seq")
   @Column(unique = true, nullable = false)
   private Long id;
 
-  @Column(name = "spotify_id", nullable = false, unique = true)
+  @Column(name = "spotify_id", unique = true, nullable = false)
   private String spotifyId;
 
   @Column(nullable = false)
   private String name;
 
   @ManyToMany(fetch = LAZY, cascade = ALL)
-  protected Set<Genre> genres;
+  @JoinTable(
+      name = "Artist_Genre",
+      joinColumns = { @JoinColumn(name = "genre_id") },
+      inverseJoinColumns = { @JoinColumn(name = "artist_id") }
+  )
+  private Set<Genre> genres;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Table
@@ -21,8 +22,9 @@ import static javax.persistence.FetchType.LAZY;
 public class Sale {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  @Column(name = "id", unique = true, nullable = false)
+  @GeneratedValue(generator = "sale_id_seq", strategy = SEQUENCE)
+  @SequenceGenerator(name = "sale_seq", sequenceName = "sale_id_seq")
+  @Column(unique = true, nullable = false)
   private Long id;
 
   @OneToMany(mappedBy = "sale", fetch = LAZY, cascade = ALL)

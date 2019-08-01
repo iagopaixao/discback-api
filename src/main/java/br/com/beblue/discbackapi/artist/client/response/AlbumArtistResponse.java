@@ -6,18 +6,18 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AlbumResponse {
+public class AlbumArtistResponse {
 
   private String id;
 
   private String name;
 
-  private List<ArtistResponse> artists;
+  private Set<ArtistResponse> artists;
 }

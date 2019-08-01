@@ -1,7 +1,7 @@
 package br.com.beblue.discbackapi.disc;
 
 import br.com.beblue.discbackapi.disc.service.DiscService;
-import br.com.beblue.discbackapi.disc.service.response.DiscCatalogResponse;
+import br.com.beblue.discbackapi.disc.service.vo.DiscVO;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class DiscResource {
   private final DiscService service;
 
   @GetMapping("/catalogs")
-  public ResponseEntity<Page<DiscCatalogResponse>> getCatalog(Pageable pageable) {
+  public ResponseEntity<Page<DiscVO>> getCatalog(Pageable pageable) {
     return ResponseEntity.ok(service.getCatalog(pageable));
   }
 }

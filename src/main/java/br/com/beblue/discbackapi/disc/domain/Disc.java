@@ -13,6 +13,7 @@ import java.util.Set;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Table
@@ -23,11 +24,12 @@ import static javax.persistence.FetchType.LAZY;
 public class Disc {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(generator = "disc_id_seq", strategy = SEQUENCE)
+  @SequenceGenerator(name = "disc_seq", sequenceName = "disc_id_seq")
   @Column(unique = true, nullable = false)
   private Long id;
 
-  @Column(name = "spotify_id", nullable = false, unique = true)
+  @Column(name = "spotify_id", unique = true, nullable = false)
   private String spotifyId;
 
   private String name;
@@ -35,6 +37,11 @@ public class Disc {
   private BigDecimal price;
 
   @ManyToMany(fetch = LAZY, cascade = ALL)
+  @JoinTable(
+      name = "Artist_Disc",
+      joinColumns = { @JoinColumn(name = "artist_id") },
+      inverseJoinColumns = { @JoinColumn(name = "disc_id") }
+  )
   private Set<Artist> artists;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();

@@ -15,8 +15,7 @@ import static org.junit.Assert.assertTrue;
 @EnableFeignClients(clients = SpotifyAuthenticationClient.class)
 public class SpotifyAuthenticationClientIntegrationTest {
 
-  private @Autowired
-  SpotifyAuthenticationClient client;
+  private @Autowired SpotifyAuthenticationClient client;
 
   @Test
   public void shouldReturnAuthenticationResponse_whenGetTokenIsCalled() {

@@ -15,5 +15,5 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ItemResponse {
 
-  List<AlbumResponse> items;
+  List<AlbumArtistResponse> items;
 }

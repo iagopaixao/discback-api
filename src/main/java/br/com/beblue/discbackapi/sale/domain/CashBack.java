@@ -11,6 +11,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Data
 @Table
 @Entity
@@ -20,7 +22,8 @@ import java.time.DayOfWeek;
 public class CashBack {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(generator = "cash_back_id_seq", strategy = SEQUENCE)
+  @SequenceGenerator(name = "cash_back_seq", sequenceName = "cash_back_id_seq")
   @Column(unique = true, nullable = false)
   private Long id;
 

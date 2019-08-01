@@ -1,13 +1,12 @@
 package br.com.beblue.discbackapi.artist.service;
 
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
-import br.com.beblue.discbackapi.artist.client.response.AlbumResponse;
+import br.com.beblue.discbackapi.artist.client.response.AlbumArtistResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistResponse;
 import br.com.beblue.discbackapi.artist.repository.ArtistRepository;
 import br.com.beblue.discbackapi.artist.service.exception.AlbumNotFoundException;
 import br.com.beblue.discbackapi.artist.service.exception.ArtistNotFoundException;
 import br.com.beblue.discbackapi.artist.service.mapper.ArtistMapper;
-import br.com.beblue.discbackapi.disc.domain.Genre;
 import br.com.beblue.discbackapi.disc.domain.MusicGenre;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,20 +37,20 @@ public class ArtistService {
   public List<String> filterArtistIds(MusicGenre genre) {
     return artistClient
         .searchArtists(genre.name(), OFFSET, MAX_LIMIT)
-        .parallelStream()
+        .stream()
         .findAny()
         .orElseThrow(() -> new ArtistNotFoundException(ARTIST_NOT_FOUND_ERROR))
         .getArtistItem()
         .getArtists()
-        .parallelStream()
+        .stream()
         .map(ArtistResponse::getId)
         .collect(Collectors.toList());
   }
 
-  public List<AlbumResponse> filterAlbums(final String artistId) {
+  public List<AlbumArtistResponse> filterAlbums(final String artistId) {
     return artistClient
         .findAlbumsByArtist(artistId, OFFSET, MAX_LIMIT)
-        .parallelStream()
+        .stream()
         .findAny()
         .orElseThrow(() -> new AlbumNotFoundException(ALBUM_NOT_FOUND_ERROR))
         .getItems();

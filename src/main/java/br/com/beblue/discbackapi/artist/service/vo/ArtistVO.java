@@ -1,20 +1,24 @@
 package br.com.beblue.discbackapi.artist.service.vo;
 
-import br.com.beblue.discbackapi.AuditDate;
+import br.com.beblue.discbackapi.disc.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.Set;
+
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArtistVO {
+public final class ArtistVO {
 
-  private String id;
+  private Long id;
+
+  private String spotifyId;
 
   private String name;
 
-  private AuditDate auditDate;
+  private Set<Genre> genres;
 }

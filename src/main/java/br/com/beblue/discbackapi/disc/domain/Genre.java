@@ -12,6 +12,7 @@ import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Table
@@ -22,7 +23,8 @@ import static javax.persistence.FetchType.LAZY;
 public class Genre {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(generator = "genre_id_seq", strategy = SEQUENCE)
+  @SequenceGenerator(name = "genre_seq", sequenceName = "genre_id_seq")
   @Column(unique = true, nullable = false)
   private Long id;
 

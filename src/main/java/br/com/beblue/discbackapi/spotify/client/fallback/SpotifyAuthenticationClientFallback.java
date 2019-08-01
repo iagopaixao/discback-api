@@ -15,7 +15,7 @@ public class SpotifyAuthenticationClientFallback implements SpotifyAuthenticatio
 
   @Override
   public Optional<SpotifyAuthenticationResponse> getToken() {
-    log.error("m=getToken status=error message={}", cause.getCause());
+    log.error("m=getToken status=error cause=", cause);
     return Optional.empty();
   }
 }
