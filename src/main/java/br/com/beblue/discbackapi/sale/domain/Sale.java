@@ -7,8 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.LAZY;
 
 @Data
 @Table
@@ -23,13 +25,8 @@ public class Sale {
   @Column(name = "id", unique = true, nullable = false)
   private Long id;
 
-  //TODO: solving when create migration
-  @Transient
-  private List<String> discIds;
-
-  private BigDecimal value;
-
-  private BigDecimal cashbackTotal;
+  @OneToMany(mappedBy = "sale", fetch = LAZY, cascade = ALL)
+  private List<SaleItem> saleItems;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

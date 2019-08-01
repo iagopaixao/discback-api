@@ -8,6 +8,7 @@ import br.com.beblue.discbackapi.artist.service.exception.AlbumNotFoundException
 import br.com.beblue.discbackapi.artist.service.exception.ArtistNotFoundException;
 import br.com.beblue.discbackapi.artist.service.mapper.ArtistMapper;
 import br.com.beblue.discbackapi.disc.domain.Genre;
+import br.com.beblue.discbackapi.disc.domain.MusicGenre;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class ArtistService {
   private static final String MAX_LIMIT = "50";
   private static final String OFFSET = "1";
 
-  public List<String> filterArtistIds(Genre genre) {
+  public List<String> filterArtistIds(MusicGenre genre) {
     return artistClient
         .searchArtists(genre.name(), OFFSET, MAX_LIMIT)
         .parallelStream()

@@ -4,13 +4,13 @@ import br.com.beblue.discbackapi.artist.domain.Artist;
 import br.com.beblue.discbackapi.disc.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Data
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

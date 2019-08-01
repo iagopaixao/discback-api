@@ -1,7 +1,7 @@
-package br.com.beblue.discbackapi.disc.domain;
+package br.com.beblue.discbackapi.sale.domain;
 
 import br.com.beblue.discbackapi.AuditDate;
-import br.com.beblue.discbackapi.artist.domain.Artist;
+import br.com.beblue.discbackapi.disc.domain.Disc;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,33 +9,33 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Set;
 
 import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.LAZY;
 
 @Data
-@Table
+@Table(name = "sale_item")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Disc {
+public class SaleItem {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  @Column(unique = true, nullable = false)
+  @Column(name = "id", unique = true, nullable = false)
   private Long id;
 
-  @Column(name = "spotify_id", nullable = false, unique = true)
-  private String spotifyId;
+  @OneToOne(cascade = ALL)
+  private Disc disc;
 
-  private String name;
+  @ManyToOne(cascade = ALL)
+  private Sale sale;
 
-  private BigDecimal price;
+  private BigDecimal value;
 
-  @ManyToMany(fetch = LAZY, cascade = ALL)
-  private Set<Artist> artists;
+  private BigDecimal quantity;
+
+  private BigDecimal cashBack;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

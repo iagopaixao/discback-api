@@ -1,7 +1,7 @@
-package br.com.beblue.discbackapi.disc.domain;
+package br.com.beblue.discbackapi.sale.domain;
 
 import br.com.beblue.discbackapi.AuditDate;
-import br.com.beblue.discbackapi.artist.domain.Artist;
+import br.com.beblue.discbackapi.disc.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Set;
-
-import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.LAZY;
+import java.time.DayOfWeek;
 
 @Data
 @Table
@@ -20,22 +17,22 @@ import static javax.persistence.FetchType.LAZY;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Disc {
+public class CashBack {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(unique = true, nullable = false)
   private Long id;
 
-  @Column(name = "spotify_id", nullable = false, unique = true)
-  private String spotifyId;
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
+  private DayOfWeek day;
 
-  private String name;
+  @ManyToOne
+  private Genre genre;
 
-  private BigDecimal price;
-
-  @ManyToMany(fetch = LAZY, cascade = ALL)
-  private Set<Artist> artists;
+  @Column(nullable = false)
+  private BigDecimal percentage;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

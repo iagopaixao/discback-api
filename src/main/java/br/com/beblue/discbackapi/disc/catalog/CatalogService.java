@@ -2,7 +2,7 @@ package br.com.beblue.discbackapi.disc.catalog;
 
 import br.com.beblue.discbackapi.artist.client.response.AlbumResponse;
 import br.com.beblue.discbackapi.artist.service.ArtistService;
-import br.com.beblue.discbackapi.disc.domain.Genre;
+import br.com.beblue.discbackapi.disc.domain.MusicGenre;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class CatalogService {
       final ConcurrentMap<String, List<AlbumResponse>> catalog = new ConcurrentHashMap<>();
     };
 
-    Stream.of(Genre.values())
+    Stream.of(MusicGenre.values())
         .parallel()
         .forEach(
             genre ->

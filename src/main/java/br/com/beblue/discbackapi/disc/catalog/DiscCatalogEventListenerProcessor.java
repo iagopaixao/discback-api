@@ -20,8 +20,9 @@ public class DiscCatalogEventListenerProcessor {
   public void populate(@Lazy ContextRefreshedEvent event) {
     log.info("m=populate status=initial message=populating disk catalog  event={}", event.getSource());
 
-    final var map = service.populateDiscCatalog();
+//    final var map = service.populateDiscCatalog();
+//    log.info("m=populate status=finished payload={}", map.toString());
+    log.info("m=populate status=finished payload=hai hai");
 
-    log.info("m=populate status=finished payload={}", map.toString());
   }
 }

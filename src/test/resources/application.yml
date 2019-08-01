@@ -19,6 +19,7 @@ spring:
     database: h2
     properties:
       hibernate:
+        default_schema: public
         ddl-auto: validate
         show-sql: true
         format_sql: true
