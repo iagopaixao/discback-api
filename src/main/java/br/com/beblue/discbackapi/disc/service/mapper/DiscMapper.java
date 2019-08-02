@@ -10,7 +10,6 @@ import org.mapstruct.ReportingPolicy;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 import static org.mapstruct.InjectionStrategy.CONSTRUCTOR;
@@ -28,17 +27,14 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.SET_TO_NULL;
 )
 public interface DiscMapper extends EntityMapper<DiscVO, Disc> {
 
-  default List<Disc> toEntityFrom(ConcurrentMap<String, List<AlbumArtistResponse>> albumMap) {
-    return albumMap.values().parallelStream()
-        .flatMap(
-            albums -> albums.parallelStream().map(
-                album -> Disc.builder()
-                    .spotifyId(album.getId())
-                    .name(album.getName())
-                    .price(BigDecimal.ONE)
-                    .artists(ArtistMapper.toEntity(album.getArtists()))
-                    .build()
-            )
-        ).collect(Collectors.toList());
+  default List<Disc> toEntityFrom(List<AlbumArtistResponse> albums) {
+    return albums.parallelStream().map(
+        album -> Disc.builder()
+            .spotifyId(album.getId())
+            .name(album.getName())
+            .price(BigDecimal.ONE)
+            .artists(ArtistMapper.toEntity(album.getArtists()))
+            .build()
+    ).collect(Collectors.toList());
   }
 }

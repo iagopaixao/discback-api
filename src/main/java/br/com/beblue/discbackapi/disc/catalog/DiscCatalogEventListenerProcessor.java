@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DiscCatalogEventListenerProcessor {
 
-  private final DiscCatalogConsumer service;
+  private final DiscCatalogConsumer consumer;
 
   @EventListener
-  public void process(@Lazy ContextRefreshedEvent event) {
-    service.populateDiscCatalog();
+  public void process(@Lazy ContextRefreshedEvent e) {
+    consumer.populateDiscCatalog();
   }
 }

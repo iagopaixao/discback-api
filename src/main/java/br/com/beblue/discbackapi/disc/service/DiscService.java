@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.concurrent.ConcurrentMap;
+
+import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
+import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -27,8 +29,8 @@ public class DiscService {
     return repository.findAll(pageable).map(mapper::toVO);
   }
 
-  @Transactional
-  public void saveCatalog(final ConcurrentMap<String, List<AlbumArtistResponse>> discs) {
+  @Transactional(propagation = REQUIRES_NEW, isolation = READ_COMMITTED)
+  public void saveCatalog(List<AlbumArtistResponse> discs) {
     repository.saveAll(mapper.toEntityFrom(discs));
   }
 }

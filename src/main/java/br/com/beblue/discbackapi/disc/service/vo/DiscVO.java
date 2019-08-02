@@ -23,5 +23,5 @@ public final class DiscVO {
 
   private BigDecimal price;
 
-  private Set<Artist> artists;
+//  private Set<Artist> artists;
 }
