@@ -28,7 +28,7 @@ spring:
           implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
         jdbc:
           batch_size: 50
-            order_inserts: true
+          order_inserts: true
           lob:
             non_contextual_creation: true
           temp:
