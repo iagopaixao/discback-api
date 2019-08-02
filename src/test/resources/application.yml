@@ -21,7 +21,7 @@ spring:
       hibernate:
         default_schema: public
         ddl-auto: validate
-        show-sql: true
+        show_sql: true
         format_sql: true
         naming:
           physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
@@ -57,9 +57,9 @@ swagger-ui:
     title: REST support for Artist Back API
     description: This is the REST UI support of Artist Back API. Here you can perform REST operations on the API.
     license: Apache License 2.0
-    basePackage: br.com.beblue.discbackapi.web.rest
+    basePackage: br.com.beblue.discbackapi
     contractName: Iago Paixão
-    contractUrl: https://github.com/euiagosilva
+    contractUrl: https://github.com/euiagosilva/discback-api
     contractEmail: euiagopaixao@gmail.com
 
 spotify:

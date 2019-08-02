@@ -48,6 +48,7 @@ public class ArtistService {
                     .getArtistItem()
                     .getArtists()
                     .stream()
+                    .distinct()
                     .map(ArtistResponse::getId)
                     .findAny()
                     .orElseThrow()

@@ -18,11 +18,14 @@ public class DiscCatalogConsumer {
 
   void populateDiscCatalog() {
     try {
-      log.info("m=populateDiscCatalog status=initial message=populating disc catalog...");
 
-      discService.saveCatalog(artistService.buildCatalog());
+      if (discService.isNotPopulatedCatalog()) {
+        log.info("m=populateDiscCatalog status=initial message=populating disc catalog...");
 
-      log.info("m=populateDiscCatalog status=success message=process successfully finished.");
+        discService.saveCatalog(artistService.buildCatalog());
+
+        log.info("m=populateDiscCatalog status=success message=process successfully finished.");
+      }
       // TODO: add specific exception
     } catch (RuntimeException e) {
       log.error("m=populateDiscCatalog status=error message=", e);

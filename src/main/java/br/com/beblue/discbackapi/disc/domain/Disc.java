@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.disc.domain;
 
-import br.com.beblue.discbackapi.AuditDate;
+import br.com.beblue.discbackapi.audit.AuditDate;
 import br.com.beblue.discbackapi.artist.domain.Artist;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +29,7 @@ public class Disc {
   @Column(updatable = false, nullable = false)
   private Long id;
 
-  @Column(name = "spotify_id", unique = true, nullable = false)
+  @Column(name = "disc_spotify_id", nullable = false)
   private String spotifyId;
 
   private String name;
@@ -38,7 +38,7 @@ public class Disc {
 
   @ManyToMany(fetch = LAZY, cascade = ALL)
   @JoinTable(
-      name = "Artist_Disc",
+      name = "Disc_Artist",
       joinColumns = { @JoinColumn(name = "artist_id") },
       inverseJoinColumns = { @JoinColumn(name = "disc_id") }
   )

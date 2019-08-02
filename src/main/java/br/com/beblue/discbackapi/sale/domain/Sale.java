@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.sale.domain;
 
-import br.com.beblue.discbackapi.AuditDate;
+import br.com.beblue.discbackapi.audit.AuditDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

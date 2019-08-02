@@ -21,7 +21,7 @@
                 },
                 {
                   "column": {
-                    "name": "spotify_id",
+                    "name": "artist_spotify_id",
                     "type": "varchar(200)",
                     "constraints": {
                       "nullable": false
@@ -81,24 +81,6 @@
                       "primaryKey": true
                     }
                   }
-                },
-                {
-                  "column": {
-                    "name": "created_at",
-                    "type": "timestamp without time zone",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "updated_at",
-                    "type": "timestamp without time zone",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
                 }
               ]
             }
@@ -119,7 +101,7 @@
                 },
                 {
                   "column": {
-                    "name": "spotify_id",
+                    "name": "disc_spotify_id",
                     "type": "varchar(100)",
                     "constraints": {
                       "nullable": false
@@ -186,24 +168,6 @@
                     "constraints": {
                       "nullable": false,
                       "primaryKey": true
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "created_at",
-                    "type": "timestamp without time zone",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "updated_at",
-                    "type": "timestamp without time zone",
-                    "constraints": {
-                      "nullable": false
                     }
                   }
                 }
@@ -447,17 +411,11 @@
             }
           },
           {
-            "addUniqueConstraint": {
-              "columnNames": "spotify_id",
-              "constraintName": "artist_spotify_unique_id",
-              "tableName": "artist"
-            }
-          },
-          {
-            "addUniqueConstraint": {
-              "columnNames": "spotify_id",
-              "constraintName": "disc_spotify_unique_id",
-              "tableName": "disc"
+            "createSequence": {
+              "minValue": 1,
+              "schemaName": "public",
+              "sequenceName": "hibernate_sequence",
+              "startValue": 1
             }
           }
         ]

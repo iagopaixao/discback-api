@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi;
+package br.com.beblue.discbackapi.audit;
 
 import lombok.Getter;
 

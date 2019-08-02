@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.domain;
 
-import br.com.beblue.discbackapi.AuditDate;
+import br.com.beblue.discbackapi.audit.AuditDate;
 import br.com.beblue.discbackapi.disc.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,7 +28,7 @@ public class Artist {
   @Column(updatable = false, nullable = false)
   private Long id;
 
-  @Column(name = "spotify_id", unique = true, nullable = false)
+  @Column(name = "artist_spotify_id", nullable = false)
   private String spotifyId;
 
   @Column(nullable = false)
