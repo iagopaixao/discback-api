@@ -25,7 +25,7 @@ public class Artist {
   @Id
   @GeneratedValue(generator = "artist_id_seq", strategy = SEQUENCE)
   @SequenceGenerator(name = "artist_seq", sequenceName = "artist_id_seq")
-  @Column(unique = true, nullable = false)
+  @Column(updatable = false, nullable = false)
   private Long id;
 
   @Column(name = "spotify_id", unique = true, nullable = false)

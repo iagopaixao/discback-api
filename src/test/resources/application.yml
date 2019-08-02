@@ -27,6 +27,8 @@ spring:
           physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
           implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
         jdbc:
+          batch_size: 5
+            order_inserts: true
           lob:
             non_contextual_creation: true
           temp:

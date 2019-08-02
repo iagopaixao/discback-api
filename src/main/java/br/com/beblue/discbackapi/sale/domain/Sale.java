@@ -24,7 +24,7 @@ public class Sale {
   @Id
   @GeneratedValue(generator = "sale_id_seq", strategy = SEQUENCE)
   @SequenceGenerator(name = "sale_seq", sequenceName = "sale_id_seq")
-  @Column(unique = true, nullable = false)
+  @Column(updatable = false, nullable = false)
   private Long id;
 
   @OneToMany(mappedBy = "sale", fetch = LAZY, cascade = ALL)

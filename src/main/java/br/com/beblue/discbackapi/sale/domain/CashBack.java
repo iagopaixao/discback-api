@@ -24,7 +24,7 @@ public class CashBack {
   @Id
   @GeneratedValue(generator = "cash_back_id_seq", strategy = SEQUENCE)
   @SequenceGenerator(name = "cash_back_seq", sequenceName = "cash_back_id_seq")
-  @Column(unique = true, nullable = false)
+  @Column(updatable = false, nullable = false)
   private Long id;
 
   @Enumerated(EnumType.STRING)

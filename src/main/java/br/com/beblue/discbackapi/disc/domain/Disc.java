@@ -26,7 +26,7 @@ public class Disc {
   @Id
   @GeneratedValue(generator = "disc_id_seq", strategy = SEQUENCE)
   @SequenceGenerator(name = "disc_seq", sequenceName = "disc_id_seq")
-  @Column(unique = true, nullable = false)
+  @Column(updatable = false, nullable = false)
   private Long id;
 
   @Column(name = "spotify_id", unique = true, nullable = false)
