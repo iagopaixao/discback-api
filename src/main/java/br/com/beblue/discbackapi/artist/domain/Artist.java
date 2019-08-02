@@ -35,11 +35,11 @@ public class Artist {
   private String name;
 
   @ManyToMany(fetch = LAZY, cascade = ALL)
-//  @JoinTable(
-//      name = "Artist_Genre",
-//      joinColumns = { @JoinColumn(name = "genre_id") },
-//      inverseJoinColumns = { @JoinColumn(name = "artist_id") }
-//  )
+  @JoinTable(
+      name = "Artist_Genre",
+      joinColumns = { @JoinColumn(name = "genre_id") },
+      inverseJoinColumns = { @JoinColumn(name = "artist_id") }
+  )
   private Set<Genre> genres;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();

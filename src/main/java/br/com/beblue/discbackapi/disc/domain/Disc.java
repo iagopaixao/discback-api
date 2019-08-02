@@ -37,11 +37,11 @@ public class Disc {
   private BigDecimal price;
 
   @ManyToMany(fetch = LAZY, cascade = ALL)
-//  @JoinTable(
-//      name = "Artist_Disc",
-//      joinColumns = { @JoinColumn(name = "artist_id") },
-//      inverseJoinColumns = { @JoinColumn(name = "disc_id") }
-//  )
+  @JoinTable(
+      name = "Artist_Disc",
+      joinColumns = { @JoinColumn(name = "artist_id") },
+      inverseJoinColumns = { @JoinColumn(name = "disc_id") }
+  )
   private Set<Artist> artists;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
