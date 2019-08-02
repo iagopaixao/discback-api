@@ -27,7 +27,7 @@ public class DiscResource {
 
   private final DiscService service;
 
-  @GetMapping("/catalogs")
+  @GetMapping("/catalog")
   public ResponseEntity<Page<DiscVO>> getCatalog(Pageable pageable) {
     return ResponseEntity.ok(service.getCatalog(pageable));
   }
