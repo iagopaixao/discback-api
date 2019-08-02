@@ -1,24 +1,22 @@
 package br.com.beblue.discbackapi.artist.service;
 
+import static br.com.beblue.discbackapi.util.Messages.ALBUM_NOT_FOUND_ERROR;
+import static br.com.beblue.discbackapi.util.Messages.ARTIST_NOT_FOUND_ERROR;
+import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
+
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
 import br.com.beblue.discbackapi.artist.client.response.AlbumArtistResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistResponse;
 import br.com.beblue.discbackapi.artist.service.exception.AlbumNotFoundException;
 import br.com.beblue.discbackapi.artist.service.exception.ArtistNotFoundException;
 import br.com.beblue.discbackapi.disc.domain.MusicGenre;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static br.com.beblue.discbackapi.util.Messages.ALBUM_NOT_FOUND_ERROR;
-import static br.com.beblue.discbackapi.util.Messages.ARTIST_NOT_FOUND_ERROR;
-import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
 
 @Service
 @Transactional(isolation = READ_COMMITTED)
