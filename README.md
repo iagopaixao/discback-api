@@ -8,7 +8,7 @@ This project is the result of a test asked by [Beblue](https://www.beblue.com.br
 
 ## Environment Provisioning
 
-- Download the project: `$ git clone https://github.com/euiagosilva/disc-graphql-api.git`
+- Download the project: `$ git clone https://github.com/euiagosilva/discback-api.git`
 - Solve dependencies: `$ ./gradlew clean build -x test`
 - Testing execution: `$ ./gradlew test`
 - Install [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) in your OS;
