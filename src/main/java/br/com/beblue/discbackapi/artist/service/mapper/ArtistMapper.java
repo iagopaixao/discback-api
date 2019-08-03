@@ -3,7 +3,7 @@ package br.com.beblue.discbackapi.artist.service.mapper;
 import br.com.beblue.discbackapi.artist.client.response.ArtistResponse;
 import br.com.beblue.discbackapi.artist.domain.Artist;
 import br.com.beblue.discbackapi.artist.service.vo.ArtistVO;
-import br.com.beblue.discbackapi.disc.domain.Genre;
+import br.com.beblue.discbackapi.genre.Genre;
 import br.com.beblue.discbackapi.disc.service.response.GenreResponse;
 import br.com.beblue.discbackapi.mapstruct.EntityMapper;
 import org.mapstruct.Mapper;

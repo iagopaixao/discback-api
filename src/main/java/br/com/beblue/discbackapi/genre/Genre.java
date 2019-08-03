@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.disc.domain;
+package br.com.beblue.discbackapi.genre;
 
 import br.com.beblue.discbackapi.audit.AuditDate;
 import br.com.beblue.discbackapi.sale.domain.CashBack;

@@ -9,7 +9,7 @@ import br.com.beblue.discbackapi.artist.client.response.AlbumArtistResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistResponse;
 import br.com.beblue.discbackapi.artist.service.exception.AlbumNotFoundException;
 import br.com.beblue.discbackapi.artist.service.exception.ArtistNotFoundException;
-import br.com.beblue.discbackapi.disc.domain.MusicGenre;
+import br.com.beblue.discbackapi.genre.EGenre;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ArtistService {
 
-  private final ArtistClient artistClient;
+  private final ArtistClient client;
 
   private static final String MAX_LIMIT = "50";
 
@@ -37,10 +37,10 @@ public class ArtistService {
   }
 
   private List<String> filterArtistIds() {
-    return Stream.of(MusicGenre.values())
+    return Stream.of(EGenre.values())
         .map(
             genre ->
-                artistClient.searchArtists(genre.name(), OFFSET, MAX_LIMIT).stream()
+                client.searchArtists(genre.name(), OFFSET, MAX_LIMIT).stream()
                     .findAny()
                     .orElseThrow(() -> new ArtistNotFoundException(ARTIST_NOT_FOUND_ERROR))
                     .getArtistItem()
@@ -54,7 +54,7 @@ public class ArtistService {
   }
 
   private List<AlbumArtistResponse> filterAlbums(final String artistId) {
-    return artistClient.findAlbumsByArtist(artistId, OFFSET, MAX_LIMIT).stream()
+    return client.findAlbumsByArtist(artistId, OFFSET, MAX_LIMIT).stream()
         .findAny()
         .orElseThrow(() -> new AlbumNotFoundException(ALBUM_NOT_FOUND_ERROR))
         .getItems();

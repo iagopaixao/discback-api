@@ -1,7 +1,7 @@
 package br.com.beblue.discbackapi.artist.domain;
 
 import br.com.beblue.discbackapi.audit.AuditDate;
-import br.com.beblue.discbackapi.disc.domain.Genre;
+import br.com.beblue.discbackapi.genre.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
