@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -30,5 +27,10 @@ public class DiscResource {
   @GetMapping("/catalog")
   public ResponseEntity<Page<DiscVO>> getCatalog(Pageable pageable) {
     return ResponseEntity.ok(service.getCatalog(pageable));
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<DiscVO> getDisc(@PathVariable long id) {
+    return ResponseEntity.ok(service.getById(id));
   }
 }

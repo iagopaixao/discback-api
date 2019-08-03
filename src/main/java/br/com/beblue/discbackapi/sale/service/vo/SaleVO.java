@@ -28,6 +28,7 @@ public final class SaleVO {
   @DecimalMin("1.0")
   private BigDecimal cashbackTotal;
 
+  //TODO: complete
   public SaleVO sell() {
     return SaleVO.builder()
         .discIds(discIds)
