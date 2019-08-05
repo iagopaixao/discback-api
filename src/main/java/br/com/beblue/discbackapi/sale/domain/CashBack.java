@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.time.DayOfWeek;
 
 import static javax.persistence.EnumType.STRING;
-import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
@@ -32,7 +31,7 @@ public class CashBack {
   @Column(nullable = false)
   private DayOfWeek day;
 
-  @ManyToOne(fetch = LAZY)
+  @ManyToOne
   @JoinColumn(name = "genre_id")
   private Genre genre;
 

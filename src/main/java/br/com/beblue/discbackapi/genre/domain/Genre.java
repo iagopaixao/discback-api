@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static java.math.BigDecimal.ZERO;
-import static javax.persistence.CascadeType.*;
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
 import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
@@ -34,7 +34,7 @@ public class Genre {
 
   private String name;
 
-  @OneToMany(mappedBy = "genre", fetch = EAGER, cascade = {PERSIST, MERGE})
+  @OneToMany(mappedBy = "genre", fetch = EAGER, cascade = ALL)
   private List<CashBack> cashBacks;
 
   public BigDecimal calculateCashBack() {

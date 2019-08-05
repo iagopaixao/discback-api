@@ -5,6 +5,7 @@ import br.com.beblue.discbackapi.disc.service.mapper.DiscMapper;
 import br.com.beblue.discbackapi.sale.domain.Sale;
 import br.com.beblue.discbackapi.sale.domain.SaleItem;
 import br.com.beblue.discbackapi.sale.service.SaleService;
+import br.com.beblue.discbackapi.sale.service.request.SaleItemRequest;
 import br.com.beblue.discbackapi.sale.service.vo.SaleItemVO;
 import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import java.util.List;
@@ -23,7 +24,7 @@ public class SaleAggregate {
 
   private final SaleService service;
 
-  public SaleVO sell(List<SaleItemVO> saleItems) {
+  public SaleVO sell(List<SaleItemRequest> saleItems) {
     final var sale = Sale.builder().build();
     final var items = saleItems.stream().map(
         item -> buildItem(sale, item)
@@ -33,7 +34,7 @@ public class SaleAggregate {
     return service.save(sale);
   }
 
-  private SaleItem buildItem(Sale sale, SaleItemVO item) {
+  private SaleItem buildItem(Sale sale, SaleItemRequest item) {
     final var disc = discService.getById(item.getDiscId());
     final var itemBuilder = SaleItem.builder().quantity(item.getQuantity()).sale(sale).build();
     itemBuilder.calculate(discMapper.toEntity(disc));

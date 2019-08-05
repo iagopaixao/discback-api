@@ -2,6 +2,7 @@ package br.com.beblue.discbackapi.sale;
 
 import br.com.beblue.discbackapi.sale.aggregate.SaleAggregate;
 import br.com.beblue.discbackapi.sale.service.SaleService;
+import br.com.beblue.discbackapi.sale.service.request.SaleItemRequest;
 import br.com.beblue.discbackapi.sale.service.vo.SaleItemVO;
 import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import io.swagger.annotations.Api;
@@ -57,7 +58,7 @@ public class SaleResource {
 
   @PostMapping
   @ApiOperation("Perform one Sale")
-  public ResponseEntity<SaleVO> sell(@RequestBody @Valid List<SaleItemVO> items)
+  public ResponseEntity<SaleVO> sell(@RequestBody @Valid List<SaleItemRequest> items)
       throws URISyntaxException {
     return ResponseEntity.created(new URI("/sales")).body((aggregate.sell(items)));
   }
