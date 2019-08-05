@@ -1,6 +1,5 @@
-package br.com.beblue.discbackapi.genre;
+package br.com.beblue.discbackapi.genre.domain;
 
-import br.com.beblue.discbackapi.audit.AuditDate;
 import br.com.beblue.discbackapi.sale.domain.CashBack;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,6 +31,4 @@ public class Genre {
 
   @OneToMany(mappedBy = "genre", fetch = LAZY, cascade = ALL)
   private List<CashBack> cashBacks;
-
-  @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }

@@ -60,33 +60,6 @@
           },
           {
             "createTable": {
-              "tableName": "artist_genre",
-              "columns": [
-                {
-                  "column": {
-                    "name": "artist_id",
-                    "type": "bigserial",
-                    "constraints": {
-                      "nullable": false,
-                      "primaryKey": true
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "genre_id",
-                    "type": "bigserial",
-                    "constraints": {
-                      "nullable": false,
-                      "primaryKey": true
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "createTable": {
               "tableName": "disc",
               "columns": [
                 {
@@ -104,7 +77,8 @@
                     "name": "disc_spotify_id",
                     "type": "varchar(100)",
                     "constraints": {
-                      "nullable": false
+                      "nullable": false,
+                      "unique": true
                     }
                   }
                 },
@@ -119,7 +93,7 @@
                 },
                 {
                   "column": {
-                    "name": "price",
+                    "name": "value",
                     "type": "numeric(30, 2)",
                     "constraints": {
                       "nullable": false
@@ -149,33 +123,6 @@
           },
           {
             "createTable": {
-              "tableName": "disc_artist",
-              "columns": [
-                {
-                  "column": {
-                    "name": "disc_id",
-                    "type": "bigserial",
-                    "constraints": {
-                      "nullable": false,
-                      "primaryKey": true
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "artist_id",
-                    "type": "bigserial",
-                    "constraints": {
-                      "nullable": false,
-                      "primaryKey": true
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "createTable": {
               "tableName": "genre",
               "columns": [
                 {
@@ -196,22 +143,62 @@
                       "nullable": false
                     }
                   }
-                },
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "disc_artist",
+              "columns": [
                 {
                   "column": {
-                    "name": "created_at",
-                    "type": "timestamp without time zone",
+                    "name": "disc_id",
+                    "type": "bigint",
                     "constraints": {
-                      "nullable": false
+                      "nullable": false,
+                      "primaryKey": true
                     }
                   }
                 },
                 {
                   "column": {
-                    "name": "updated_at",
-                    "type": "timestamp without time zone",
+                    "name": "artist_id",
+                    "type": "bigint",
                     "constraints": {
-                      "nullable": false
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "artist_genre",
+              "columns": [
+                {
+                  "column": {
+                    "name": "artist_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "foreignKeyName": "fk_artist_genre_artist",
+                      "references": "artist(id)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "foreignKeyName": "fk_artist_genre_genre",
+                      "references": "genre(id)"
                     }
                   }
                 }

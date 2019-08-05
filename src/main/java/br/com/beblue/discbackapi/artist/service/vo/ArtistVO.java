@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.service.vo;
 
-import br.com.beblue.discbackapi.genre.Genre;
+import br.com.beblue.discbackapi.genre.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

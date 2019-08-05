@@ -20,7 +20,7 @@ public class DiscCatalogConsumer {
     try {
 
       if (discService.isNotPopulatedCatalog()) {
-        log.info("m=populateDiscCatalog status=initial message=populating disc catalog...");
+        log.info("m=populateDiscCatalog status=initial message=populating genreId catalog...");
 
         discService.saveCatalog(artistService.buildCatalog());
 

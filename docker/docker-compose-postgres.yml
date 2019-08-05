@@ -2,14 +2,14 @@ version: '3.5'
 
 services:
   discback-db:
-    image: postgres:11
+    image: postgres:latest
     networks:
       - discback-db-network
     restart: always
     ports:
       - 5432:5432
     volumes:
-      - /tmp/postgres/discback-db/data:/var/lib/postgresql/data
+      - discback-db_data:/var/lib/postgresql/data
     container_name: discback-db
     environment:
       POSTGRES_DB: discback_db
@@ -18,3 +18,7 @@ services:
 networks:
   discback-db-network:
     driver: bridge
+
+volumes:
+  discback-db_data:
+    driver: local

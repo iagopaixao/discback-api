@@ -17,13 +17,13 @@ public class ArtistClientFallback implements ArtistClient {
   private final Throwable cause;
 
   @Override
-  public List<ArtistWrapperResponse> searchArtists(String id, String offset, String limit) {
+  public List<ArtistWrapperResponse> searchArtists(String id) {
     log.error("m=searchArtists status=error id={} cause={}", id, cause);
     return emptyList();
   }
 
   @Override
-  public List<ItemResponse> findAlbumsByArtist(String id, String offset, String limit) {
+  public List<ItemResponse> findAlbumsByArtist(String id, String limit) {
     log.error("m=findAlbumsByArtist status=error id={} cause={}", id, cause);
     return emptyList();
   }

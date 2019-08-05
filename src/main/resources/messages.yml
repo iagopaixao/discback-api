@@ -1,7 +1,8 @@
 msg-error:
-  artist:
-    not-find-error: Could not find an artist.
-  album:
-    not-find-error: Could not find an album.
+  entity:
+    disc:
+      not-found-error: Could not find Disc of ID {0}.
+    sale:
+      not-found-error: Could not find Sale of ID {0}.
   spotify:
     authentication-error: An error occurred while attempting to get token in spotify API.

@@ -6,17 +6,17 @@ spring:
     allow-bean-definition-overriding: true
 
   datasource:
-    url: jdbc:h2:mem:discback-db
-    driverClassName: org.h2.Driver
-    username: root
+    url: jdbc:postgresql://localhost:5432/discback_db
+    driverClassName: org.postgresql.Driver
+    username: postgres
     password: secret
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.json
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    database: h2
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
     properties:
       hibernate:
         default_schema: public
@@ -29,6 +29,7 @@ spring:
         jdbc:
           batch_size: 50
           order_inserts: true
+          order_updates: true
           lob:
             non_contextual_creation: true
           temp:

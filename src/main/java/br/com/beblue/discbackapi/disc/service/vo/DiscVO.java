@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.disc.service.vo;
 
-import br.com.beblue.discbackapi.artist.domain.Artist;
+import br.com.beblue.discbackapi.artist.service.vo.ArtistVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,11 +17,9 @@ public final class DiscVO {
 
   private Long id;
 
-  private String spotifyId;
-
   private String name;
 
-  private BigDecimal price;
+  private BigDecimal value;
 
-  private Set<Artist> artists;
+  private Set<ArtistVO> artists;
 }

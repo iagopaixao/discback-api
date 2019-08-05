@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.disc.service.response;
+package br.com.beblue.discbackapi.genre.service.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GenreResponse {
+public final class GenreVO {
+
+  private Long id;
 
   private String name;
 }

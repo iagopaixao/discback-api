@@ -1,7 +1,7 @@
 package br.com.beblue.discbackapi.disc.domain;
 
-import br.com.beblue.discbackapi.audit.AuditDate;
 import br.com.beblue.discbackapi.artist.domain.Artist;
+import br.com.beblue.discbackapi.audit.AuditDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +11,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
-import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
@@ -34,14 +34,15 @@ public class Disc {
 
   private String name;
 
-  private BigDecimal price;
+  private BigDecimal value;
 
-  @ManyToMany(fetch = LAZY, cascade = ALL)
+  @ManyToMany(fetch = EAGER, cascade = MERGE)
   @JoinTable(
-      name = "Disc_Artist",
-      joinColumns = { @JoinColumn(name = "artist_id") },
-      inverseJoinColumns = { @JoinColumn(name = "disc_id") }
+      name = "disc_artist",
+      joinColumns = { @JoinColumn(name = "disc_id") },
+      inverseJoinColumns = { @JoinColumn(name = "artist_id") }
   )
+  @OrderColumn
   private Set<Artist> artists;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();

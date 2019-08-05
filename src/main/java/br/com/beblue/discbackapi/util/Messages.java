@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Messages {
-  ALBUM_NOT_FOUND_ERROR("msg-error.album.not-find-error"),
-  ARTIST_NOT_FOUND_ERROR("msg-error.artist.not-find-error"),
+  DISC_NOT_FOUND_ERROR("msg-error.entity.disc.not-found-error"),
+  SALE_NOT_FOUND_ERROR("msg-error.entity.sale.not-found-error"),
   SPOTIFY_AUTHENTICATION_ERROR("msg-error.spotify.authentication-error");
 
   private String value;

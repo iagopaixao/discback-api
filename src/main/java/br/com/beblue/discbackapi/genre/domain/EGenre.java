@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi.genre;
+package br.com.beblue.discbackapi.genre.domain;
 
 import lombok.Getter;
 

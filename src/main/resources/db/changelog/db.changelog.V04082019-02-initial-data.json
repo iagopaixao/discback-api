@@ -1,0 +1,68 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V04082019-01",
+        "author": "iago.paixao",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "POP"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "MPB"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "CLASSIC"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "ROCK"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
