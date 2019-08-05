@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.service.vo;
 
-import br.com.beblue.discbackapi.genre.domain.Genre;
+import br.com.beblue.discbackapi.genre.service.vo.GenreVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,5 +20,5 @@ public final class ArtistVO {
 
   private String name;
 
-  private Set<Genre> genres;
+  private Set<GenreVO> genres;
 }
