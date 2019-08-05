@@ -30,15 +30,11 @@ public class SaleAggregate {
             .map(
                 item -> {
                   final var disc = discService.getById(item.getDiscId());
-
-                  final var itemBuilder =
-                      SaleItem.builder()
-                          .disc(discMapper.toEntity(disc))
-                          .quantity(item.getQuantity())
-                          .sale(Sale.builder().build())
-                          .build();
-
-                  return itemBuilder;
+                  return SaleItem.builder()
+                      .disc(discMapper.toEntity(disc))
+                      .quantity(item.getQuantity())
+                      .sale(sale)
+                      .build();
                 })
             .collect(Collectors.toList());
     sale.setSaleItems(items);

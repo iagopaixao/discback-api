@@ -44,5 +44,6 @@ public class SaleItem {
   public void calculate(Disc disc) {
     this.value = disc.getValue().multiply(new BigDecimal(quantity));
     this.cashBack = disc.applyCashBack();
+    this.disc = disc;
   }
 }
