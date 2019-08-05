@@ -28,6 +28,7 @@ public class Sale {
   private Long id;
 
   @OneToMany(mappedBy = "sale", fetch = LAZY, cascade = ALL)
+  @JoinColumn(name = "sale_id")
   private List<SaleItem> saleItems;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();

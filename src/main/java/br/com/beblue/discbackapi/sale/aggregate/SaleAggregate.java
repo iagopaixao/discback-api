@@ -25,20 +25,19 @@ public class SaleAggregate {
 
   public SaleVO sell(List<SaleItemVO> saleItems) {
     final var sale = Sale.builder().build();
-    final var items =
-        saleItems.stream()
-            .map(
-                item -> {
-                  final var disc = discService.getById(item.getDiscId());
-                  return SaleItem.builder()
-                      .disc(discMapper.toEntity(disc))
-                      .quantity(item.getQuantity())
-                      .sale(sale)
-                      .build();
-                })
-            .collect(Collectors.toList());
+    final var items = saleItems.stream().map(
+        item -> buildItem(sale, item)
+    ).collect(Collectors.toList());
     sale.setSaleItems(items);
 
     return service.save(sale);
+  }
+
+  private SaleItem buildItem(Sale sale, SaleItemVO item) {
+    final var disc = discService.getById(item.getDiscId());
+    final var itemBuilder = SaleItem.builder().quantity(item.getQuantity()).sale(sale).build();
+    itemBuilder.calculate(discMapper.toEntity(disc));
+
+    return itemBuilder;
   }
 }
