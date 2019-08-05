@@ -1,6 +1,5 @@
 package br.com.beblue.discbackapi.sale.domain;
 
-import br.com.beblue.discbackapi.audit.AuditDate;
 import br.com.beblue.discbackapi.genre.domain.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +10,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
@@ -27,7 +27,7 @@ public class CashBack {
   @Column(updatable = false, nullable = false)
   private Long id;
 
-  @Enumerated(EnumType.STRING)
+  @Enumerated(STRING)
   @Column(nullable = false)
   private DayOfWeek day;
 
@@ -36,6 +36,4 @@ public class CashBack {
 
   @Column(nullable = false)
   private BigDecimal percentage;
-
-  @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
 }
