@@ -1,14 +1,13 @@
 package br.com.beblue.discbackapi.artist.client.fallback;
 
+import static java.util.Collections.emptyList;
+
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
 import br.com.beblue.discbackapi.artist.client.response.ArtistWrapperResponse;
 import br.com.beblue.discbackapi.artist.client.response.ItemResponse;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.List;
-
-import static java.util.Collections.emptyList;
 
 @Slf4j
 @RequiredArgsConstructor

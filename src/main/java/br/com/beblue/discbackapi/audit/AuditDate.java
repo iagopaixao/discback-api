@@ -1,12 +1,11 @@
 package br.com.beblue.discbackapi.audit;
 
-import lombok.Getter;
-
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.PostUpdate;
 import javax.persistence.PrePersist;
-import java.time.LocalDateTime;
+import lombok.Getter;
 
 @Getter
 @Embeddable

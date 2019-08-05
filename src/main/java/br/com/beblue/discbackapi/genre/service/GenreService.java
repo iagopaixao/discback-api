@@ -3,12 +3,11 @@ package br.com.beblue.discbackapi.genre.service;
 import br.com.beblue.discbackapi.genre.repository.GenreRepository;
 import br.com.beblue.discbackapi.genre.service.mapper.GenreMapper;
 import br.com.beblue.discbackapi.genre.service.vo.GenreVO;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

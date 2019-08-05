@@ -13,7 +13,6 @@ import java.util.List;
 
 import static java.math.BigDecimal.ZERO;
 import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
 import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 import static org.apache.commons.collections4.CollectionUtils.isEmpty;
@@ -34,17 +33,6 @@ public class Genre {
 
   private String name;
 
-  @OneToMany(mappedBy = "genre", fetch = EAGER, cascade = ALL)
+  @OneToMany(mappedBy = "genre", cascade = ALL)
   private List<CashBack> cashBacks;
-
-  public BigDecimal calculateCashBack() {
-    if (isEmpty(this.cashBacks)) {
-      return ZERO;
-    }
-    return emptyIfNull(this.cashBacks).stream()
-        .filter(c -> c.getDay().equals(LocalDateTime.now().getDayOfWeek()))
-        .findFirst()
-        .orElseThrow(IllegalArgumentException::new)
-        .getPercentage();
-  }
 }

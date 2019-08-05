@@ -1,16 +1,30 @@
 package br.com.beblue.discbackapi.artist.client.config;
 
+import static br.com.beblue.discbackapi.util.JacksonMapperUtils.OBJECT_MAPPER;
+import static br.com.beblue.discbackapi.util.Messages.SPOTIFY_AUTHENTICATION_ERROR;
+import static java.util.Objects.isNull;
+import static java.util.Objects.requireNonNull;
+import static org.springframework.http.HttpStatus.resolve;
+
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
 import br.com.beblue.discbackapi.artist.client.fallback.ArtistClientFallbackFactory;
 import br.com.beblue.discbackapi.spotify.client.SpotifyAuthenticationClient;
 import br.com.beblue.discbackapi.spotify.client.exception.SpotifyAuthenticationException;
 import br.com.beblue.discbackapi.spotify.client.response.SpotifyAuthenticationResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import feign.*;
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
+import feign.Response;
+import feign.Retryer;
+import feign.Target;
 import feign.http2client.Http2Client;
 import feign.hystrix.HystrixFeign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +32,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.OBJECT_MAPPER;
-import static br.com.beblue.discbackapi.util.Messages.SPOTIFY_AUTHENTICATION_ERROR;
-import static java.util.Objects.isNull;
-import static java.util.Objects.requireNonNull;
-import static org.springframework.http.HttpStatus.resolve;
 
 @Slf4j
 @Configuration

@@ -1,12 +1,11 @@
 package br.com.beblue.discbackapi.util;
 
+import java.util.Locale;
+import java.util.Properties;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
-
-import java.util.Locale;
-import java.util.Properties;
 
 public final class MessageUtils {
 

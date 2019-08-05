@@ -5,7 +5,6 @@ import br.com.beblue.discbackapi.artist.client.response.ItemResponse;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
-
 import java.util.List;
 
 @Headers({"Accept: application/json", "Content-Type: application/json"})

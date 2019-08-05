@@ -1,5 +1,11 @@
 package br.com.beblue.discbackapi.disc.service;
 
+import static br.com.beblue.discbackapi.util.JacksonMapperUtils.distinctBy;
+import static br.com.beblue.discbackapi.util.Messages.DISC_NOT_FOUND_ERROR;
+import static org.apache.commons.lang3.math.NumberUtils.LONG_ONE;
+import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
+import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
+
 import br.com.beblue.discbackapi.artist.client.response.AlbumArtistResponse;
 import br.com.beblue.discbackapi.artist.domain.Artist;
 import br.com.beblue.discbackapi.artist.service.ArtistService;
@@ -8,22 +14,15 @@ import br.com.beblue.discbackapi.disc.repository.DiscRepository;
 import br.com.beblue.discbackapi.disc.service.exception.DiscNotFoundException;
 import br.com.beblue.discbackapi.disc.service.mapper.DiscMapper;
 import br.com.beblue.discbackapi.disc.service.vo.DiscVO;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.distinctBy;
-import static br.com.beblue.discbackapi.util.Messages.DISC_NOT_FOUND_ERROR;
-import static org.apache.commons.lang3.math.NumberUtils.LONG_ONE;
-import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
-import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

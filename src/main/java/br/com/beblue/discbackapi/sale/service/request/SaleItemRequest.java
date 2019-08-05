@@ -1,13 +1,12 @@
 package br.com.beblue.discbackapi.sale.service.request;
 
+import java.math.BigDecimal;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import java.math.BigDecimal;
 
 @Getter
 @Builder

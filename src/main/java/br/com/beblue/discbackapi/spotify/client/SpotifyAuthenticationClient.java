@@ -4,7 +4,6 @@ import br.com.beblue.discbackapi.spotify.client.response.SpotifyAuthenticationRe
 import feign.Body;
 import feign.Headers;
 import feign.RequestLine;
-
 import java.util.Optional;
 
 @Headers("Content-Type: application/x-www-form-urlencoded")

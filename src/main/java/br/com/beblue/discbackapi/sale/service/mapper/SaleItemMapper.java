@@ -1,15 +1,15 @@
 package br.com.beblue.discbackapi.sale.service.mapper;
 
+import static org.mapstruct.InjectionStrategy.CONSTRUCTOR;
+import static org.mapstruct.NullValueCheckStrategy.ALWAYS;
+import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
+
 import br.com.beblue.discbackapi.mapstruct.EntityMapper;
 import br.com.beblue.discbackapi.sale.domain.SaleItem;
 import br.com.beblue.discbackapi.sale.service.vo.SaleItemVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
-
-import static org.mapstruct.InjectionStrategy.CONSTRUCTOR;
-import static org.mapstruct.NullValueCheckStrategy.ALWAYS;
-import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
 @Mapper(
     componentModel = "spring",

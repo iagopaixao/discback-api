@@ -1,5 +1,8 @@
 package br.com.beblue.discbackapi.spotify.client.config;
 
+import static br.com.beblue.discbackapi.util.JacksonMapperUtils.OBJECT_MAPPER;
+import static org.springframework.util.Base64Utils.encodeToString;
+
 import br.com.beblue.discbackapi.spotify.client.SpotifyAuthenticationClient;
 import br.com.beblue.discbackapi.spotify.client.fallback.SpotifyAuthenticationClientFallbackFactory;
 import feign.RequestInterceptor;
@@ -14,9 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.OBJECT_MAPPER;
-import static org.springframework.util.Base64Utils.encodeToString;
 
 @Slf4j
 @Configuration

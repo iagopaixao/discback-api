@@ -1,5 +1,9 @@
 package br.com.beblue.discbackapi.artist.service;
 
+import static br.com.beblue.discbackapi.util.JacksonMapperUtils.distinctBy;
+import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
+import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
+
 import br.com.beblue.discbackapi.artist.client.ArtistClient;
 import br.com.beblue.discbackapi.artist.client.response.AlbumArtistResponse;
 import br.com.beblue.discbackapi.artist.client.response.ArtistItemResponse;
@@ -10,19 +14,14 @@ import br.com.beblue.discbackapi.artist.repository.ArtistRepository;
 import br.com.beblue.discbackapi.artist.service.exception.AlbumNotFoundException;
 import br.com.beblue.discbackapi.artist.service.exception.ArtistNotFoundException;
 import br.com.beblue.discbackapi.genre.service.GenreService;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.SetUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.distinctBy;
-import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
-import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
