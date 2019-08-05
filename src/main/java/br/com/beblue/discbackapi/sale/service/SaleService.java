@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static br.com.beblue.discbackapi.util.Messages.SALE_NOT_FOUND_ERROR;
 import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
@@ -27,10 +27,9 @@ public class SaleService {
   private final SaleMapper mapper;
 
   @Transactional(readOnly = true)
-  public Page<SaleVO> getSales(LocalDate initialDate, LocalDate endDate, Pageable pageable) {
-    return repository
-        .searchBy(initialDate.atStartOfDay(), endDate.atStartOfDay(), pageable)
-        .map(mapper::toVO);
+  public Page<SaleVO> getSales(
+      LocalDateTime initialDate, LocalDateTime endDate, Pageable pageable) {
+    return repository.searchBy(initialDate, endDate, pageable).map(mapper::toVO);
   }
 
   @Transactional(readOnly = true)
