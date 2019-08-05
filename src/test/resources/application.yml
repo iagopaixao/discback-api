@@ -30,6 +30,7 @@ spring:
           batch_size: 50
           order_inserts: true
           order_updates: true
+          batch_versioned_data: true
           lob:
             non_contextual_creation: true
           temp:
