@@ -16,6 +16,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ArtistItemResponse {
 
-  @JsonProperty("items")
+  @JsonProperty("saleItems")
   private List<ArtistResponse> artists;
 }

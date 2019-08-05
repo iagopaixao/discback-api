@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -27,8 +29,7 @@ public class Sale {
   @Column(updatable = false, nullable = false)
   private Long id;
 
-  @OneToMany(mappedBy = "sale", fetch = LAZY, cascade = ALL)
-  @JoinColumn(name = "sale_id")
+  @OneToMany(mappedBy = "sale", fetch = EAGER, cascade = {PERSIST, MERGE})
   private List<SaleItem> saleItems;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();

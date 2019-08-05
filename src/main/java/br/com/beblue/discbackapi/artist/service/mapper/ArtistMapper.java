@@ -21,8 +21,7 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
     unmappedSourcePolicy = ReportingPolicy.IGNORE,
     unmappedTargetPolicy = ReportingPolicy.IGNORE,
     nullValueCheckStrategy = ALWAYS,
-    nullValuePropertyMappingStrategy = IGNORE,
-    imports = GenreMapper.class)
+    nullValuePropertyMappingStrategy = IGNORE)
 public interface ArtistMapper extends EntityMapper<ArtistVO, Artist> {
 
   static Set<Artist> toEntity(Set<ArtistResponse> artists) {

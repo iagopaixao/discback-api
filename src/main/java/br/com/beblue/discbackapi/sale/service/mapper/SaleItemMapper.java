@@ -1,10 +1,10 @@
 package br.com.beblue.discbackapi.sale.service.mapper;
 
-import br.com.beblue.discbackapi.disc.service.mapper.DiscMapper;
 import br.com.beblue.discbackapi.mapstruct.EntityMapper;
-import br.com.beblue.discbackapi.sale.domain.Sale;
-import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
+import br.com.beblue.discbackapi.sale.domain.SaleItem;
+import br.com.beblue.discbackapi.sale.service.vo.SaleItemVO;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 import static org.mapstruct.InjectionStrategy.CONSTRUCTOR;
@@ -17,7 +17,10 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
     unmappedSourcePolicy = ReportingPolicy.IGNORE,
     unmappedTargetPolicy = ReportingPolicy.IGNORE,
     nullValueCheckStrategy = ALWAYS,
-    nullValuePropertyMappingStrategy = IGNORE,
-    uses = {SaleItemMapper.class, DiscMapper.class}
-)
-public interface SaleMapper extends EntityMapper<SaleVO, Sale> {}
+    nullValuePropertyMappingStrategy = IGNORE)
+public interface SaleItemMapper extends EntityMapper<SaleItemVO, SaleItem> {
+
+  @Override
+  @Mapping(target = "discId", source = "disc.id")
+  SaleItemVO toVO(SaleItem entity);
+}

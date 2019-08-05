@@ -23,8 +23,7 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
     unmappedSourcePolicy = ReportingPolicy.IGNORE,
     unmappedTargetPolicy = ReportingPolicy.IGNORE,
     nullValueCheckStrategy = ALWAYS,
-    nullValuePropertyMappingStrategy = IGNORE,
-    imports = ArtistMapper.class
+    nullValuePropertyMappingStrategy = IGNORE
 )
 public interface DiscMapper extends EntityMapper<DiscVO, Disc> {
 

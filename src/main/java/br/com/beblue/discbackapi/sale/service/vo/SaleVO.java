@@ -16,7 +16,7 @@ public final class SaleVO {
 
   private Long id;
 
-  @NotEmpty.List(@NotEmpty) private List<SaleItemVO> items;
+  @NotEmpty.List(@NotEmpty) private List<SaleItemVO> saleItems;
 
   private AuditDate auditDate;
 }
