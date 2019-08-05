@@ -7,12 +7,11 @@ import br.com.beblue.discbackapi.sale.domain.SaleItem;
 import br.com.beblue.discbackapi.sale.service.SaleService;
 import br.com.beblue.discbackapi.sale.service.vo.SaleItemVO;
 import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -36,9 +35,10 @@ public class SaleAggregate {
                       SaleItem.builder()
                           .disc(discMapper.toEntity(disc))
                           .quantity(item.getQuantity())
-                          .sale(Sale.builder().build());
+                          .sale(Sale.builder().build())
+                          .build();
 
-                  return itemBuilder.build();
+                  return itemBuilder;
                 })
             .collect(Collectors.toList());
     sale.setSaleItems(items);
