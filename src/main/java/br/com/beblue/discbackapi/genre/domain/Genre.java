@@ -7,11 +7,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
+import static java.math.BigDecimal.ZERO;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
+import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 @Data
 @Table
@@ -31,4 +36,15 @@ public class Genre {
 
   @OneToMany(mappedBy = "genre", fetch = LAZY, cascade = ALL)
   private List<CashBack> cashBacks;
+
+  public BigDecimal calculateCashBack() {
+    if (isEmpty(getCashBacks())) {
+      return ZERO;
+    }
+    return emptyIfNull(getCashBacks()).stream()
+        .filter(c -> c.getDay().equals(LocalDateTime.now().getDayOfWeek()))
+        .findFirst()
+        .orElseThrow(IllegalArgumentException::new)
+        .getPercentage();
+  }
 }

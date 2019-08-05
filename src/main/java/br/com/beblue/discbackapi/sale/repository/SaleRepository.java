@@ -13,11 +13,11 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
 
   @Query(
       "from #{#entityName} s "
-          + "where s.auditDate.createdAt <= :initalDate "
+          + "where s.auditDate.createdAt <= :initialDate "
           + "and s.auditDate.createdAt >= :endDate "
-          + "order by s.auditDate.createdAt asc")
+          + "order by s.auditDate.createdAt desc ")
   Page<Sale> searchBy(
-      @Param("initalDate") LocalDateTime initialDate,
+      @Param("initialDate") LocalDateTime initialDate,
       @Param("endDate") LocalDateTime endDate,
       Pageable pageable);
 }

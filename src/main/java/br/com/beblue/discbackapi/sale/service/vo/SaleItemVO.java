@@ -5,16 +5,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public final class SaleVO {
+public final class SaleItemVO {
 
-  private Long id;
+  @NotEmpty
+  private Long discId;
 
-  @NotEmpty.List(@NotEmpty) private List<SaleItemVO> items;
+  @NotEmpty
+  private BigDecimal value;
+
+  @Min(1)
+  private Integer quantity;
+
+  private BigDecimal cashBack;
 }

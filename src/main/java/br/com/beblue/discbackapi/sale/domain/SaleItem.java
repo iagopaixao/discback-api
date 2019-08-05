@@ -35,9 +35,14 @@ public class SaleItem {
 
   private BigDecimal value;
 
-  private BigDecimal quantity;
+  private Integer quantity;
 
   private BigDecimal cashBack;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
+
+  public void calculate(Disc disc) {
+    this.value = disc.getValue().multiply(new BigDecimal(quantity));
+    this.cashBack = disc.calculateCashBack();
+  }
 }

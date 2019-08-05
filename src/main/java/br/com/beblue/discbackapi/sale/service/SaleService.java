@@ -1,8 +1,8 @@
 package br.com.beblue.discbackapi.sale.service;
 
 import br.com.beblue.discbackapi.disc.service.exception.DiscNotFoundException;
+import br.com.beblue.discbackapi.sale.domain.Sale;
 import br.com.beblue.discbackapi.sale.repository.SaleRepository;
-import br.com.beblue.discbackapi.sale.response.SaleResponse;
 import br.com.beblue.discbackapi.sale.service.mapper.SaleMapper;
 import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 
 import static br.com.beblue.discbackapi.util.Messages.SALE_NOT_FOUND_ERROR;
-import static java.time.LocalDateTime.parse;
-import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
 import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
 
@@ -31,11 +29,8 @@ public class SaleService {
   @Transactional(readOnly = true)
   public Page<SaleVO> getSales(LocalDate initialDate, LocalDate endDate, Pageable pageable) {
     return repository
-        .searchBy(
-            initialDate.atStartOfDay(),
-            endDate.atStartOfDay(),
-            pageable
-        ).map(mapper::toVO);
+        .searchBy(initialDate.atStartOfDay(), endDate.atStartOfDay(), pageable)
+        .map(mapper::toVO);
   }
 
   @Transactional(readOnly = true)
@@ -47,7 +42,7 @@ public class SaleService {
   }
 
   @Transactional(propagation = REQUIRES_NEW, isolation = READ_COMMITTED)
-  public SaleResponse save(SaleVO saleVO) {
-    return mapper.toResponse(repository.save(mapper.toEntity(saleVO)));
+  public SaleVO save(Sale sale) {
+    return mapper.toVO(repository.save(sale));
   }
 }

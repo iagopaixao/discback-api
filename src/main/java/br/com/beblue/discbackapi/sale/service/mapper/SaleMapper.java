@@ -9,7 +9,7 @@ import org.mapstruct.ReportingPolicy;
 
 import static org.mapstruct.InjectionStrategy.CONSTRUCTOR;
 import static org.mapstruct.NullValueCheckStrategy.ALWAYS;
-import static org.mapstruct.NullValuePropertyMappingStrategy.SET_TO_NULL;
+import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
 @Mapper(
     componentModel = "spring",
@@ -17,8 +17,7 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.SET_TO_NULL;
     unmappedSourcePolicy = ReportingPolicy.IGNORE,
     unmappedTargetPolicy = ReportingPolicy.IGNORE,
     nullValueCheckStrategy = ALWAYS,
-    nullValuePropertyMappingStrategy = SET_TO_NULL
-)
+    nullValuePropertyMappingStrategy = IGNORE)
 public interface SaleMapper extends EntityMapper<SaleVO, Sale> {
 
   SaleResponse toResponse(Sale sale);

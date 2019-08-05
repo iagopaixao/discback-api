@@ -3,6 +3,7 @@ package br.com.beblue.discbackapi.sale;
 import br.com.beblue.discbackapi.sale.aggregate.SaleAggregate;
 import br.com.beblue.discbackapi.sale.response.SaleResponse;
 import br.com.beblue.discbackapi.sale.service.SaleService;
+import br.com.beblue.discbackapi.sale.service.vo.SaleItemVO;
 import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -55,8 +57,8 @@ public class SaleResource {
 
   @PostMapping
   @ApiOperation("Perform one Sale")
-  public ResponseEntity<SaleResponse> sell(@RequestBody @Valid SaleVO vo)
+  public ResponseEntity<SaleResponse> sell(@RequestBody @Valid List<SaleItemVO> items)
       throws URISyntaxException {
-    return ResponseEntity.created(new URI("/sales")).body((aggregate.sell(vo)));
+    return ResponseEntity.created(new URI("/sales")).body((aggregate.sell(items)));
   }
 }
