@@ -21,12 +21,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME;
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-// TODO: remove this anotation and add CORS config class
 @CrossOrigin(
     origins = "*",
-    methods = {GET, POST, PUT, PATCH, DELETE, OPTIONS})
+    methods = {GET, POST}
+)
 @Api("Sale Resource")
 @RestController
 @RequestMapping("/sales")

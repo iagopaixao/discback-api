@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotEmpty;
 
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-@CrossOrigin(
-    origins = "*",
-    methods = {GET, POST, PUT, PATCH, DELETE, OPTIONS})
+@CrossOrigin(origins = "*", methods = GET)
 @Api("Disc Resource")
 @RestController
 @RequestMapping("/discs")
