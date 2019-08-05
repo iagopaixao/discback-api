@@ -38,8 +38,8 @@ public class SaleAggregate {
 
   public SaleVO sell(List<SaleItemRequest> saleItems) {
     final var sale = Sale.builder().build();
-    final var items =
-        saleItems.stream().map(item -> buildItem(sale, item)).collect(Collectors.toList());
+    final var items = saleItems.stream().map(item -> buildItem(sale, item))
+    .collect(Collectors.toList());
     sale.setSaleItems(items);
 
     return service.save(sale);
