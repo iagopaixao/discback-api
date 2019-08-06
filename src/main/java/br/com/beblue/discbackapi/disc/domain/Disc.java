@@ -19,10 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 @Data
 @Table
@@ -51,6 +49,7 @@ public class Disc {
       joinColumns = {@JoinColumn(name = "disc_id")},
       inverseJoinColumns = {@JoinColumn(name = "artist_id")})
   @OrderColumn
+  @ToString.Exclude
   private Set<Artist> artists;
 
   @Embedded @Builder.Default() private AuditDate auditDate = new AuditDate();
