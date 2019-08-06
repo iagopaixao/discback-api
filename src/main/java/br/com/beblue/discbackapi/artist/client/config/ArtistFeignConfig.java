@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.client.config;
 
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.OBJECT_MAPPER;
+import static br.com.beblue.discbackapi.util.MapperUtils.OBJECT_MAPPER;
 import static br.com.beblue.discbackapi.util.Messages.SPOTIFY_AUTHENTICATION_ERROR;
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;

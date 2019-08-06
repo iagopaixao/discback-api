@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.disc.service;
 
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.distinctBy;
+import static br.com.beblue.discbackapi.util.MapperUtils.distinctBy;
 import static br.com.beblue.discbackapi.util.Messages.DISC_NOT_FOUND_ERROR;
 import static org.apache.commons.lang3.math.NumberUtils.LONG_ONE;
 import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;

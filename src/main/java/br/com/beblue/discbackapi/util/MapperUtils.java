@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public final class JacksonMapperUtils {
+public final class MapperUtils {
 
   public static final ObjectMapper OBJECT_MAPPER;
 
@@ -22,7 +22,7 @@ public final class JacksonMapperUtils {
             .enable(ACCEPT_SINGLE_VALUE_AS_ARRAY);
   }
 
-  private JacksonMapperUtils() {
+  private MapperUtils() {
     throw new IllegalStateException("Utility Class!");
   }
 

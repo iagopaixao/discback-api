@@ -1,6 +1,6 @@
 package br.com.beblue.discbackapi.artist.service;
 
-import static br.com.beblue.discbackapi.util.JacksonMapperUtils.distinctBy;
+import static br.com.beblue.discbackapi.util.MapperUtils.distinctBy;
 import static org.springframework.transaction.annotation.Isolation.READ_COMMITTED;
 import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
 
