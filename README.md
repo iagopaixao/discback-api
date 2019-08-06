@@ -9,7 +9,7 @@ This project is the result of a test asked by [Beblue](https://www.beblue.com.br
 ## Environment Provisioning
 
 - Download the project: `$ git clone https://github.com/euiagosilva/discback-api.git`
-- Solve dependencies: `$ ./gradlew clean build -x test`
+- Solve dependencies: `$ ./gradlew -s --parallel clean build`
 - Testing execution: `$ ./gradlew test`
 - Install [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) in your OS;
 - Create the postgres database container: `$ docker-compose -f docker/docker-compose-postgres.yml up`
@@ -25,7 +25,7 @@ Perform REST operations on API using [Swagger UI](https://swagger.io/tools/swagg
 
 [Iago Paixão](https://www.linkedin.com/in/iagopaixao/) – euiagopaixao@gmail.com
 
-Distributed under [MIT](https://github.com/euiagosilva/disc-api/blob/master/LICENSE) license
+Distributed under [Apache License 2.0](https://github.com/euiagosilva/discback-api/blob/master/LICENSE) license
 
 https://github.com/euiagosilva/discback-api
 

@@ -31,4 +31,5 @@ before_script:
   - docker ps -a
 
 script:
+  - ./gradlew -s --parallel clean build
   - ./gradlew -s sonarqube
