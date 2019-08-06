@@ -1,0 +1,385 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V27072019-01",
+        "author": "iago.paixao",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "artist",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "artist_spotify_id",
+                    "type": "varchar(200)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "disc",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "disc_spotify_id",
+                    "type": "varchar(100)",
+                    "constraints": {
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "value",
+                    "type": "numeric(30, 2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "genre",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "disc_artist",
+              "columns": [
+                {
+                  "column": {
+                    "name": "disc_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "artist_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "artist_genre",
+              "columns": [
+                {
+                  "column": {
+                    "name": "artist_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "foreignKeyName": "fk_artist_genre_artist",
+                      "references": "artist(id)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "foreignKeyName": "fk_artist_genre_genre",
+                      "references": "genre(id)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "cash_back",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(15)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "fk_cash_back_genre",
+                      "references": "genre(id)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "sale",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "sale_item",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "disc_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "fk_sale_item_disc",
+                      "references": "disc(id)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "sale_id",
+                    "type": "bigserial",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "fk_sale_item_sale",
+                      "references": "sale(id)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "value",
+                    "type": "numeric(30, 2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "quantity",
+                    "type": "int",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "cash_back",
+                    "type": "numeric(30, 2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "type": "timestamp without time zone",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createSequence": {
+              "minValue": 1,
+              "schemaName": "public",
+              "sequenceName": "hibernate_sequence",
+              "startValue": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

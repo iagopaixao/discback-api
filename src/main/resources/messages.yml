@@ -1,3 +1,8 @@
 msg-error:
-  model-name-duplication: There is already a model with that color {0}.
-  not-find-entity: Could not find entity {0}.
+  entity:
+    disc:
+      not-found-error: Could not find Disc of ID {0}.
+    sale:
+      not-found-error: Could not find Sale of ID {0}.
+  spotify:
+    authentication-error: An error occurred while attempting to get token in spotify API.

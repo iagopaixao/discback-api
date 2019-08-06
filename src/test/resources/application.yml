@@ -6,26 +6,31 @@ spring:
     allow-bean-definition-overriding: true
 
   datasource:
-    url: jdbc:h2:mem:car_graphql_db
-    driverClassName: org.h2.Driver
-    username: root
+    url: jdbc:postgresql://localhost:5432/discback_db
+    driverClassName: org.postgresql.Driver
+    username: postgres
     password: secret
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.json
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    database: h2
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
     properties:
       hibernate:
+        default_schema: public
         ddl-auto: validate
-        show-sql: true
+        show_sql: true
         format_sql: true
         naming:
           physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
           implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
         jdbc:
+          batch_size: 50
+          order_inserts: true
+          order_updates: true
+          batch_versioned_data: true
           lob:
             non_contextual_creation: true
           temp:
@@ -51,17 +56,19 @@ hystrix:
 
 swagger-ui:
   api-info:
-    title: REST support for Disc Back API
-    description: This is the REST UI support of Disc Back API. Here you can perform REST operations on the API.
+    title: REST support for Artist Back API
+    description: This is the REST UI support of Artist Back API. Here you can perform REST operations on the API.
     license: Apache License 2.0
-    basePackage: br.com.beblue.discbackapi.web.rest
+    basePackage: br.com.beblue.discbackapi
     contractName: Iago Paixão
-    contractUrl: https://github.com/euiagosilva
+    contractUrl: https://github.com/euiagosilva/discback-api
     contractEmail: euiagopaixao@gmail.com
 
 spotify:
   api:
-    url: https://accounts.spotify.com/api
+    url: https://api.spotify.com/v1
+    accounts:
+      url: https://accounts.spotify.com/api
   authentication:
     grant-type: client_credentials
     credentials: 70899cda4f3c47a2a5e47cc8dba2f422:f5f5750e689c4803b6ef8f2f925921a3

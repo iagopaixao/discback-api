@@ -1,0 +1,852 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V04082019-01",
+        "author": "iago.paixao",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "POP"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "MPB"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "CLASSIC"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "value": "ROCK"
+                  }
+                }
+              ],
+              "tableName": "genre"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SUNDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.25"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "MONDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.07"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "TUESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.06"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "WEDNESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.02"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "THURSDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.10"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "FRIDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.15"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SATURDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.20"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "1"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SUNDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.30"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "MONDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.05"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "TUESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.10"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "WEDNESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.15"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "THURSDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.20"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "FRIDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.25"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SATURDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.30"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "2"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SUNDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.35"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "MONDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.03"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "TUESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.05"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "WEDNESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.08"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "THURSDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.13"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "FRIDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.18"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SATURDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.25"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "3"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SUNDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.40"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "MONDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.10"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "TUESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.15"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "WEDNESDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.15"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "THURSDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.15"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "FRIDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.20"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "day",
+                    "type": "varchar(200)",
+                    "value": "SATURDAY"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "percentage",
+                    "type": "numeric(30, 2)",
+                    "value": "0.40"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "genre_id",
+                    "type": "bigint",
+                    "value": "4"
+                  }
+                }
+              ],
+              "tableName": "cash_back"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -2,8 +2,6 @@ language: java
 jdk:
 - openjdk12
 
-sudo: false
-
 cache:
   directories:
   - $HOME/.m2
@@ -16,5 +14,4 @@ addons:
       secure: "2851657440ed74a5664be1b5cf2765f272f2f460"
 
 script:
-  - ./gradlew clean build
   - ./gradlew sonarqube

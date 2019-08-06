@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication(scanBasePackages = "br.com.beblue.discbackapi")
 public class DiscBackApplication {
 
-  public static void main(String[] args) {
+  public static void main(String... args) {
     SpringApplication.run(DiscBackApplication.class, args);
   }
 }
