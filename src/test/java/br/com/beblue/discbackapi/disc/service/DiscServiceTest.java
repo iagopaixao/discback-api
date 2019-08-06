@@ -90,18 +90,4 @@ public class DiscServiceTest {
 
     assertTrue(result);
   }
-
-  @Test
-  public void shouldSaveCatalogSuccessfully_whenSaveCatalogIsCalled() {
-    final var discs = singletonList(disc());
-    final var albumsArtist = singletonList(albumArtist());
-
-    when(mapper.toEntityFrom(albumsArtist)).thenReturn(discs);
-    when(repository.saveAll(discs)).thenReturn(discs);
-
-    service.saveCatalog(albumsArtist);
-
-    verify(mapper, times(INTEGER_ONE)).toEntityFrom(albumsArtist);
-    verify(repository, times(INTEGER_ONE)).saveAll(discs);
-  }
 }
