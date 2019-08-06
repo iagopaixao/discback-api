@@ -13,5 +13,11 @@ addons:
     token:
       secure: "2851657440ed74a5664be1b5cf2765f272f2f460"
 
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database discback_db;' -U postgres
+
 script:
   - ./gradlew sonarqube
