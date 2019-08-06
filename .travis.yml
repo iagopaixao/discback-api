@@ -9,28 +9,26 @@ cache:
 
 sudo: true
 
+env:
+  - DOCKER_COMPOSE_VERSION=1.24.0
+
 services:
-  - postgresql
+  - docker
 
 addons:
   sonarcloud:
     organization: "euiagosilva"
     token:
       secure: "2851657440ed74a5664be1b5cf2765f272f2f460"
-  postgresql: "11.2"
 
  before_install:
-  - sudo apt-get update
-  - sudo apt-get --yes remove postgresql\*
-  - sudo apt-get install -y postgresql-11 postgresql-client-11
-  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
-  - sudo service postgresql restart 11  
+   - sudo rm /usr/local/bin/docker-compose
+   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+   - chmod +x docker-compose
+   - sudo mv docker-compose /usr/local/bin
 before_script:
-  - psql --version
-  - psql -c 'CREATE DATABASE discback_db;' -U postgres
-  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+  - docker-compose -f docker/docker-compose-postgres.yml up
+  - docker ps -a
+
 script:
   - ./gradlew sonarqube
-services:
-  - postgresql
