@@ -31,4 +31,4 @@ before_script:
   - docker ps -a
 
 script:
-  - ./gradlew sonarqube
+  - ./gradlew -s sonarqube
