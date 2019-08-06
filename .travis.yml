@@ -2,12 +2,12 @@ language: java
 jdk:
 - openjdk12
 
+sudo: true
+
 cache:
   directories:
   - $HOME/.m2
   - $HOME/.gradle
-
-sudo: true
 
 env:
   - DOCKER_COMPOSE_VERSION=1.24.0
