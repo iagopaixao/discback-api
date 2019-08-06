@@ -15,6 +15,6 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ArtistItemResponse {
 
-  @JsonProperty("saleItems")
+  @JsonProperty("items")
   private List<ArtistResponse> artists;
 }
