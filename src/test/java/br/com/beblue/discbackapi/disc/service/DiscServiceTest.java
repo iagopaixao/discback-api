@@ -1,6 +1,5 @@
 package br.com.beblue.discbackapi.disc.service;
 
-import br.com.beblue.discbackapi.artist.service.ArtistService;
 import br.com.beblue.discbackapi.disc.repository.DiscRepository;
 import br.com.beblue.discbackapi.disc.service.exception.DiscNotFoundException;
 import br.com.beblue.discbackapi.disc.service.mapper.DiscMapper;
@@ -16,7 +15,6 @@ import org.springframework.data.domain.PageRequest;
 import java.util.Optional;
 
 import static br.com.beblue.discbackapi.artist.mock.ArtistMockFactory.albumArtist;
-import static br.com.beblue.discbackapi.artist.mock.ArtistMockFactory.artist;
 import static br.com.beblue.discbackapi.disc.mock.DiscMockFactory.disc;
 import static br.com.beblue.discbackapi.disc.mock.DiscMockFactory.discVO;
 import static java.util.Collections.singletonList;
@@ -29,8 +27,6 @@ import static org.mockito.Mockito.*;
 public class DiscServiceTest {
 
   @Mock private DiscRepository repository;
-
-  @Mock private ArtistService artistService;
 
   @Mock private DiscMapper mapper;
 
@@ -97,12 +93,10 @@ public class DiscServiceTest {
 
   @Test
   public void shouldSaveCatalogSuccessfully_whenSaveCatalogIsCalled() {
-    final var artists = singletonList(artist());
     final var discs = singletonList(disc());
     final var albumsArtist = singletonList(albumArtist());
 
     when(mapper.toEntityFrom(albumsArtist)).thenReturn(discs);
-    when(artistService.saveAll(artists)).thenReturn(artists);
     when(repository.saveAll(discs)).thenReturn(discs);
 
     service.saveCatalog(albumsArtist);
