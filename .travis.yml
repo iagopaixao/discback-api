@@ -9,17 +9,18 @@ cache:
 
 sudo: true
 
+services:
+  - postgresql
+
 addons:
   sonarcloud:
     organization: "euiagosilva"
     token:
       secure: "2851657440ed74a5664be1b5cf2765f272f2f460"
-
-services:
-  - postgresql
+  postgresql: 9.6
 
 before_script:
-  - psql -c 'create database discback_db;' -U postgres -P secret
+  - psql -c 'create database discback_db;' -U postgres
 
 script:
   - ./gradlew sonarqube
