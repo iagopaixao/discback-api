@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//TODO: Adds integration tests
 @CrossOrigin(
     origins = "*",
     methods = {GET, POST}
@@ -58,7 +57,7 @@ public class SaleResource {
 
   @GetMapping("/{id}")
   @ApiOperation("Get one Sale by ID")
-  public ResponseEntity<SaleVO> getSale(@PathVariable long id) {
+  public ResponseEntity<SaleVO> getOneSale(@PathVariable long id) {
     return ResponseEntity.ok(service.getById(id));
   }
 

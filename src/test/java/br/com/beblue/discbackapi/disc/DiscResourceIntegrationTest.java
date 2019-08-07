@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import br.com.beblue.discbackapi.AbstractIntegrationConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,22 +17,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
-public class DiscResourceIntegrationTest {
-
-  @Autowired private WebApplicationContext wac;
-
-  private MockMvc mockMvc;
-
-  @Before
-  public void setup() {
-    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-  }
+public class DiscResourceIntegrationTest extends AbstractIntegrationConfig {
 
   @Test
   public void shouldReturnOneDisc_whenGetDiscIsCalled() throws Exception {
-    mockMvc
+    getMockMvc()
         .perform(
             get("/discs/{id}", 100)
                 .accept(APPLICATION_JSON_UTF8)
@@ -41,8 +31,8 @@ public class DiscResourceIntegrationTest {
   }
 
   @Test
-  public void shouldReturnDiscCatalog_whenGetCatalogIsCalled() throws Exception {
-    mockMvc
+  public void shouldReturnDiscsCatalog_whenGetCatalogIsCalled() throws Exception {
+    getMockMvc()
         .perform(
             get("/discs/catalog" )
                 .param("genre", "MPB")
