@@ -30,7 +30,7 @@ before_install:
 
   - docker-compose --version
   - docker-compose -f docker/docker-compose-postgres.yml up
-  - docker ps -a
+  - travis_wait 30 docker ps -a
 
 script:
   - ./gradlew -s --parallel clean build
