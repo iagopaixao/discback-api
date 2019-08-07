@@ -1,4 +1,4 @@
-package br.com.beblue.discbackapi;
+package br.com.beblue.discbackapi.config;
 
 import lombok.Getter;
 import org.junit.Before;

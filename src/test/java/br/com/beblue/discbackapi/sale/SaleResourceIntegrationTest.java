@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import br.com.beblue.discbackapi.AbstractIntegrationConfig;
+import br.com.beblue.discbackapi.config.AbstractIntegrationConfig;
 import java.time.LocalDateTime;
 import org.junit.Test;
 
