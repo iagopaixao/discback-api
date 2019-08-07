@@ -45,10 +45,12 @@ public class DiscResourceIntegrationTest {
     mockMvc
         .perform(
             get("/discs/catalog" )
+                .param("genre", "MPB")
                 .accept(APPLICATION_JSON_UTF8)
                 .contentType(APPLICATION_JSON)
         )
         .andExpect(status().isOk())
-        .andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON));
+        .andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON))
+    ;
   }
 }
