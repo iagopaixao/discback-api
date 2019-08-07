@@ -11,7 +11,6 @@ import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.validation.Valid;
@@ -63,8 +62,7 @@ public class SaleResource {
 
   @PostMapping
   @ApiOperation("Perform one Sale")
-  public ResponseEntity<SaleVO> sell(@RequestBody @Valid List<SaleItemRequest> items)
-      throws URISyntaxException {
-    return ResponseEntity.created(new URI("/sales")).body((aggregate.sell(items)));
+  public ResponseEntity<SaleVO> sell(@RequestBody @Valid List<SaleItemRequest> items) {
+    return ResponseEntity.created(URI.create("/sales")).body((aggregate.sell(items)));
   }
 }
