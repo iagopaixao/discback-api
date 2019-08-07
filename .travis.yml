@@ -30,8 +30,8 @@ before_install:
 
   - sudo service postgresql stop
 
-  - docker-compose --version
   - docker-compose -f docker/docker-compose-postgres.yml up
+  - docker-compose restart
 
 script:
   - ./gradlew -s --parallel clean build
