@@ -28,11 +28,9 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-  - sudo service postgresql stop
-
   - docker-compose --version
   - docker-compose -f docker/docker-compose-postgres.yml up
-  - travis_wait 30 docker ps -a
+  - docker ps -a
 
 script:
   - ./gradlew -s --parallel clean build
