@@ -29,9 +29,8 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
   - sudo service postgresql stop
-
+  - docker-compose -f docker/docker-compose-postgres.yml up -d
 
 script:
-  - docker-compose -f docker/docker-compose-postgres.yml up -d
   - ./gradlew -s --parallel clean build
   - ./gradlew -s sonarqube
