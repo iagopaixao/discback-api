@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//TODO: Adds integration tests
 @CrossOrigin(origins = "*", methods = GET)
 @Api("Disc Resource")
 @RestController
@@ -40,7 +39,7 @@ public class DiscResource {
 
   @GetMapping("/{id}")
   @ApiOperation("Get one Disc by ID")
-  public ResponseEntity<DiscVO> getDisc(@PathVariable long id) {
+  public ResponseEntity<DiscVO> getOneDisc(@PathVariable long id) {
     return ResponseEntity.ok(service.getById(id));
   }
 }

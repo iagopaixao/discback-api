@@ -11,7 +11,6 @@ import br.com.beblue.discbackapi.sale.service.vo.SaleVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.validation.Valid;
@@ -30,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//TODO: Adds integration tests
 @CrossOrigin(
     origins = "*",
     methods = {GET, POST}
@@ -58,14 +56,13 @@ public class SaleResource {
 
   @GetMapping("/{id}")
   @ApiOperation("Get one Sale by ID")
-  public ResponseEntity<SaleVO> getSale(@PathVariable long id) {
+  public ResponseEntity<SaleVO> getOneSale(@PathVariable long id) {
     return ResponseEntity.ok(service.getById(id));
   }
 
   @PostMapping
   @ApiOperation("Perform one Sale")
-  public ResponseEntity<SaleVO> sell(@RequestBody @Valid List<SaleItemRequest> items)
-      throws URISyntaxException {
-    return ResponseEntity.created(new URI("/sales")).body((aggregate.sell(items)));
+  public ResponseEntity<SaleVO> sell(@RequestBody @Valid List<SaleItemRequest> items) {
+    return ResponseEntity.created(URI.create("/sales")).body((aggregate.sell(items)));
   }
 }
