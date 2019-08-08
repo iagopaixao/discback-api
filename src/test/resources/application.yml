@@ -19,6 +19,8 @@ spring:
     database: postgresql
     properties:
       hibernate:
+        id:
+          new_generator_mappings: false
         default_schema: public
         ddl-auto: validate
         show_sql: true
